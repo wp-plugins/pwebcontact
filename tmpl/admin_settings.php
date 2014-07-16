@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -37,6 +37,7 @@ function_exists('add_action') or die;
     
     <div id="pweb-settings-content">
         <?php $this->_load_tmpl('email', __FILE__); ?>
+		<?php $this->_load_tmpl('advanced', __FILE__); ?>
     </div>
     
     <?php wp_nonce_field( 'save-settings' ); ?>

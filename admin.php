@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -530,6 +530,7 @@ class PWebContact_Admin {
             
             $this->_check_requirements();
             $this->_load_forms();
+			$this->_load_settings();
             
             // load JS files
             wp_enqueue_script('pwebcontact_admin_script', plugins_url('media/js/jquery.admin-list.js', __FILE__), 
@@ -662,14 +663,18 @@ class PWebContact_Admin {
         
         global $wpdb;
         
-        if ($this->data === null) {
+        if (!is_object($this->data)) {
+            $this->data = new stdClass();
+        }
+        
+        if (!isset($this->data->forms)) {
         
             $sql =  'SELECT `id`, `title`, `publish`, `position`, `modify_date`, `layout` '.
                     'FROM `'.$wpdb->prefix.'pwebcontact_forms` ';
-            $this->data = $wpdb->get_results($sql);
+            $this->data->forms = $wpdb->get_results($sql);
             
-            if ($this->data === null) {
-                $this->data = array();
+            if ($this->data->forms === null) {
+                $this->data->forms = array();
             }
         }
     }
@@ -1005,6 +1010,19 @@ class PWebContact_Admin {
         
         $data = get_plugin_data(dirname(__FILE__).'/pwebcontact.php', false, false);
         return $data['Version'];
+    }
+	
+	
+	protected function _get_feeds_script() {
+        
+		global $wp_version;
+		
+        return 
+			  '(function(){'
+			. 'var pw=document.createElement("script");pw.type="text/javascript";pw.async=true;'
+			. 'pw.src="https://www.perfect-web.co/index.php?option=com_pwebshop&view=updates&format=raw&extension=wp_pwebcontact&version='.$this->_get_version().'&wpversion='.$wp_version.'&uid='.md5(home_url()).'";'
+			. 'var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(pw,s);'
+			. '})();';
     }
     
     

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -44,7 +44,8 @@ function_exists('add_action') or die;
 <div class="theme-browser pweb-panels pweb-clearfix">
 <div class="themes">
 
-<?php foreach ($this->data as $form) : ?>
+<?php if (isset($this->data->forms)) :
+    foreach ($this->data->forms as $form) : ?>
     <div class="theme pweb-panel-box">
         <div class="theme-screenshot pweb-layout-<?php echo $form->layout; ?>" onclick="document.location.href='<?php echo admin_url( 'admin.php?page=pwebcontact&task=edit&id='.(int)$form->id ); ?>'">
 			<?php if (!defined('PWEBCONTACT_PRO') AND $form->layout !== 'slidebox') : ?>
@@ -102,7 +103,8 @@ function_exists('add_action') or die;
             </button>
         </div>
     </div>
-<?php endforeach; ?>
+<?php endforeach; 
+endif; ?>
 
     <div class="theme active pweb-panel-box pweb-panel-pro">
         <div class="theme-screenshot pweb-buy">
@@ -135,3 +137,9 @@ function_exists('add_action') or die;
     <p><?php _e( 'Are you sure you want to delete form:', 'pwebcontact' ); ?> 
     <span class="pweb-dialog-form-title"></span>?</p>
 </div>
+
+<?php if ($this->_get_param('feed', 1, 'settings')) : ?>
+<script type="text/javascript">
+<?php echo $this->_get_feeds_script(); ?>
+</script>
+<?php endif; ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -237,26 +237,6 @@ function_exists('add_action') or die;
             'default' => 0,
             'class' => 'pweb-radio-group',
             'parent' => array('bootstrap_version_2'),
-            'options' => array(
-                array(
-                    'value' => 0,
-                    'name' => 'No'
-                ),
-                array(
-                    'value' => 1,
-                    'name' => 'Yes'
-                )
-            )
-        )); ?>
-
-        <?php echo $this->_get_field(array(
-            'type' => 'radio',
-            'name' => 'feed',
-            'label' => 'Updates feed',
-            'header' => 'Updates',
-            'tooltip' => 'Display news and special offers from Perfect-Web.co website in administration panel of this extension only for Administrator.',
-            'default' => 1,
-            'class' => 'pweb-radio-group',
             'options' => array(
                 array(
                     'value' => 0,
