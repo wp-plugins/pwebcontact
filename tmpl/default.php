@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.2
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -133,7 +133,7 @@ $message =
 								
 								$field['attributes'] = null;
 								$field['classes'] = array('pweb-input');
-								if ($field['required']) 
+								if (isset($field['required']) AND $field['required']) 
 									$field['classes'][] = 'required';
 								
 								if (isset($field['validation']) AND $field['validation']) 
@@ -170,7 +170,7 @@ $message =
 								if ($field['maxlength']) {
 									$field['attributes'] .= ' maxlength="'.$field['maxlength'].'"';
 								}
-								if ($field['required']) 
+								if (isset($field['required']) AND $field['required']) 
 									$field['classes'][] = 'required';
 								
 								if ($field['tooltip']) {
