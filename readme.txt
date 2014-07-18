@@ -14,17 +14,12 @@ Intuitive for dummies. Handy for pros!
 
 Intuitive for dummies. Handy for pros!
 
-★ 5-click setup
-
-★ Fully responsive
-
-★ Drag & Drop form builder
-
-★ Spam protection without annoying captcha
-
-★ Ready-made themes
-
-★ Cool visual and animations effects
+* 5-click setup
+* Fully responsive
+* Drag & Drop form builder
+* Spam protection without annoying captcha
+* Ready-made themes
+* Cool visual and animations effects
 
 Discover Perfect Easy & Powerful Contact Form developed for WordPress. First of all see cool visual effects you can use on your website such as smooth slide in effect, impressive lightbox appear effects or on-site display with possible accordation effect. As you see your possibilities are practically unlimited. What is more learn about key features of Perfect Contact Form starting from handy upload, trough excellent spam protection, to unlimited number of forms and fields you can use. Thirdly explore our ready-made responsive layouts you can easily adjust to your needs. No matter you need a call me back option, an application or reservation form, support ticket submission form or a poll Perfect Contact Form will suit your needs perfectly.
 Try it it’s easy!
