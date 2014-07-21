@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form, contact me, call me back, popup contact form, popup form, reservation form, contact helpdesk form, feedback form, post feedback, form, resnponsive form, rwd form, contacts form plugin, easy contact form plugin, button, contact, contacts, cnotact, conact, contatc, send copy, feedback, request, send
 Requires at least: 3.5.0
 Tested up to: 3.9.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: Perfect Web License
 License URI: http://www.perfect-web.co/license
 
@@ -136,6 +136,10 @@ To ask a support question or post a bug report, fill a [support form](http://www
 20. Very advanced options for web developers
 
 == Changelog ==
+
+= 1.0.3 / 21-07-2014 =
+* Fixed copying fields when coyping a form
+* Improved display of Rules & Terms in modal window
 
 = 1.0.2 / 17-07-2014 =
 * Fixed some PHP notices

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.1
+ * @version 1.0.3
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -9,8 +9,6 @@
 
 // No direct access
 function_exists('add_action') or die;
-
-//define('PWEBCONTACT_PRO', true);
 
 $pwebcontact_admin = new PWebContact_Admin;
 
@@ -787,7 +785,8 @@ class PWebContact_Admin {
             'position' => 'footer',
             'layout' => 'slidebox',
             'modify_date' => gmdate('Y-m-d H:i:s'),
-            'params' => '{}'
+            'params' => '{}',
+            'fields' => '{}'
         );
         
         if ($wpdb->insert($wpdb->prefix.'pwebcontact_forms', $data)) {
@@ -802,7 +801,7 @@ class PWebContact_Admin {
         
         global $wpdb;
         
-        $sql =  $wpdb->prepare('SELECT `title`, `position`, `layout`, `params` '.
+        $sql =  $wpdb->prepare('SELECT `title`, `position`, `layout`, `params`, `fields` '.
                     'FROM `'.$wpdb->prefix.'pwebcontact_forms` '.
                     'WHERE `id` = %d', $this->id);
         $data = $wpdb->get_row($sql, ARRAY_A);
