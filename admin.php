@@ -195,6 +195,10 @@ class PWebContact_Admin {
     
     function init() {
         
+        if (defined('PWEBCONTACT_PRO')) {
+            $this->_check_updates();
+        }
+        
         if (!isset($_GET['page']) OR $_GET['page'] !== 'pwebcontact') {
             return;
         }
@@ -1504,6 +1508,52 @@ class PWebContact_Admin {
 		$val = $val / 1024 / 1024;
 		
         return $val > 10 ? intval($val) : round($val, 2);
+    }
+    
+    private function _check_updates()
+    {
+        require_once dirname(__FILE__). '/update-checker/plugin-update-checker.php';
+        
+        $UpdateChecker = PucFactory::buildUpdateChecker(
+            'https://www.perfect-web.co/index.php?option=com_pwebshop&view=updates&format=json',
+            dirname(__FILE__).'/pwebcontact.php'
+        );
+        $UpdateChecker->addQueryArgFilter( array($this, 'get_updates_query') );
+    }
+    
+    public function get_updates_query($query)
+    {
+        global $wp_version;
+        
+        // download ID
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+        $files = list_files( dirname(__FILE__), 1 );
+        foreach ($files as $file) {
+            $file = basename($file);
+            if (preg_match('/^[a-f0-9]{32}$/', $file)) {
+                $query['download_id'] = $file;
+                break;
+            }
+        }
+        
+        if (!isset($query['download_id'])) {
+            return $query;
+        }
+        
+        // plugin slug
+        $query['extension'] = 'pwebcontact';
+        
+        // plugin version
+        // installed_version = x.x.x
+        //$query['version'] = $this->_get_version();
+			
+		// WP version
+		$query['wpversion'] = $wp_version;
+		
+		// host name
+		$query['host'] = urlencode(home_url());
+        
+        return $query;
     }
     
     private function _check_image_text_creation()
