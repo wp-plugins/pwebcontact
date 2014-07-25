@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form, contact me, call me back, popup contact form, popup form, reservation form, contact helpdesk form, feedback form, post feedback, form, resnponsive form, rwd form, contacts form plugin, easy contact form plugin, button, contact, contacts, cnotact, conact, contatc, send copy, feedback, request, send
 Requires at least: 3.5.0
 Tested up to: 3.9.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: Perfect Web License
 License URI: http://www.perfect-web.co/license
 
@@ -137,6 +137,11 @@ To ask a support question or post a bug report, fill a [support form](http://www
 
 == Changelog ==
 
+= 1.0.5 / 25-07-2014 =
+* Open contact form with menu item
+* Informations about custom links and JavaScript code for opening form and preloading field values
+* Informations about Google Analytics tracking
+
 = 1.0.4 / 22-07-2014 =
 * Automatic updates for PRO version
 
@@ -156,7 +161,7 @@ To ask a support question or post a bug report, fill a [support form](http://www
 == Upgrade Notice ==
 
 = 1.0.4 =
-To update PRO version download it from Perfect-Web.co website. After this upadte you will be able to automatically update PRO version form your WordPress dashbord.
+To update PRO version download it from Perfect-Web.co website and upload by FTP. After this upadte you will be able to automatically update PRO version from your WordPress dashbord.
 
 = 1.0.3 =
 To update PRO version download it from Perfect-Web.co website and upload by FTP.

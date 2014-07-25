@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.1
+ * @version 1.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -63,6 +63,10 @@ function_exists('add_action') or die;
                 <i class="glyphicon glyphicon-ok"></i>
                 <?php esc_html_e( 'Configuration check', 'pwebcontact' ); ?>
             </a>
+            <a href="#pweb-tab-tips" id="pweb-tab-tips" class="nav-tab">
+                <i class="glyphicon glyphicon-info-sign"></i>
+                <?php esc_html_e( 'Tips', 'pwebcontact' ); ?>
+            </a>
             <a href="#pweb-tab-advanced" id="pweb-tab-advanced" class="nav-tab">
                 <i class="glyphicon glyphicon-cog"></i>
                 <?php esc_html_e( 'Advanced', 'pwebcontact' ); ?>
@@ -90,6 +94,10 @@ function_exists('add_action') or die;
         
         <div id="pweb-tab-check-content" class="nav-tab-content pweb-clearfix">
             <?php $this->_load_tmpl('check', __FILE__); ?>
+        </div>
+        
+        <div id="pweb-tab-tips-content" class="nav-tab-content pweb-clearfix">
+            <?php $this->_load_tmpl('tips', __FILE__); ?>
         </div>
         
         <div id="pweb-tab-advanced-content" class="nav-tab-content pweb-clearfix">

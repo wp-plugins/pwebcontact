@@ -1,5 +1,5 @@
 /**
- * @version 1.0.0
+ * @version 1.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -519,6 +519,10 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
     min-width: 50px;
 }
 
+.pweb-field.pweb-desc p {
+    line-height: 210%;
+}
+
 
 #pweb_params_toggler_position .pweb-field-option {
     min-width: 100px;
@@ -874,10 +878,8 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
     font-family: 'Glyphicons Halflings';
 }
 
-
-span.pweb-pro {
-    background: #AA0000;
-    color: #FFFFFF;
+span.pweb-pro,
+span.pweb-free {
     display: inline-block;
     font-weight: bold;
     font-size: 13px;
@@ -885,17 +887,15 @@ span.pweb-pro {
     padding: 0 5px;
     margin-left: 3px;
     text-transform: uppercase;
+}
+span.pweb-pro {
+    background: #AA0000;
+    color: #FFFFFF;
     cursor: pointer;
 }
 span.pweb-free {
     background: #009E0A;
     color: #FFFFFF;
-    display: inline-block;
-    font-weight: bold;
-    line-height: 18px;
-    padding: 0 5px;
-    margin-left: 3px;
-    text-transform: uppercase;
     cursor: default;
 }
 
@@ -908,6 +908,14 @@ span.pweb-free {
 
 .ui-dialog-content p {
     margin: 10px;
+}
+
+
+code {
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 3px;
+    color: #d14;
 }
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.2
+ * @version 1.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -139,7 +139,7 @@ $message =
 								if (isset($field['validation']) AND $field['validation']) 
 									$field['classes'][] = 'pweb'.$form_id.'-validate-'.$field['alias'];
 								
-								if ($field['tooltip']) {
+								if (isset($field['tooltip']) AND $field['tooltip']) {
 									$field['classes'][] = 'pweb-tooltip';
 									$field['attributes'] .= ' title="'.esc_attr__($field['tooltip'], 'pwebcontact').'"';
 								}
@@ -167,13 +167,13 @@ $message =
 								$field['classes'] = array();
 								
 								$field['attributes'] .= ' rows="'.($field['rows'] ? (int)$field['rows'] : 5).'"';
-								if ($field['maxlength']) {
+								if (isset($field['maxlength']) AND $field['maxlength']) {
 									$field['attributes'] .= ' maxlength="'.$field['maxlength'].'"';
 								}
 								if (isset($field['required']) AND $field['required']) 
 									$field['classes'][] = 'required';
 								
-								if ($field['tooltip']) {
+								if (isset($field['tooltip']) AND $field['tooltip']) {
 									$field['classes'][] = 'pweb-tooltip';
 									$field['attributes'] .= ' title="'.esc_attr__($field['tooltip'], 'pwebcontact').'"';
 								}

@@ -1,5 +1,5 @@
 /**
- * @version 1.0.0
+ * @version 1.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -271,7 +271,7 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
         }
         
         $(this).blur();
-    });
+    }).filter(".pweb-advanced-options-open").click();
     
     
     // Select current Administrator if Email to is empty
