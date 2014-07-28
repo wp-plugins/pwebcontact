@@ -134,6 +134,7 @@ To ask a support question or post a bug report, fill a [support form](http://www
 18. Step 3 - advanced options of theme
 19. Step 4 - advanced options of email
 20. Very advanced options for web developers
+21. Tips for opening contact form with menu item or custom HTML/JavaScript code
 
 == Changelog ==
 
