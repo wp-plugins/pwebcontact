@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.3
+ * @version 1.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -1461,10 +1461,10 @@ class PWebContact_Admin {
     protected function _display_badge($field_type = null)
     {
         if (!defined('PWEBCONTACT_PRO')) {
-            if (in_array($field_type, self::$pro['fields'])) {
+            if (in_array($field_type, self::$pro['field_types'])) {
                 return $this->_display_badge_pro();
             }
-            elseif (in_array($field_type, self::$free['fields'])) {
+            elseif (in_array($field_type, self::$free['field_types'])) {
                 return $this->_display_badge_free();
             }
         }
