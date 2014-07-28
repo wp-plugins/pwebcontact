@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license Perfect Web License http://www.perfect-web.co/license
@@ -1462,7 +1462,7 @@ $this->_set_free_options('field_types', array(
                     <?php echo $this->_display_badge($field_type); ?>
                 </div>
                 <div class="pweb-custom-field-label">
-                    <?php _e('Label', 'pwebcontact'); ?> <span></span>
+                    <?php _e('Label', 'pwebcontact'); ?> <span><?php _e('Agree to Terms & Conditions', 'pwebcontact'); ?></span>
                 </div>
                 
                 <div class="pweb-custom-field-options">
