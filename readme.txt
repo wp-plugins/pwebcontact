@@ -48,6 +48,8 @@ Try it it’s easy!
 * *Multiple lightbox appear effects*
 * *Accordion*
 
+*Functions written in italic may be limited in a free version*
+
 **Visit our [demo page](http://www.perfect-web.co/wordpress/contact-form#page-demo) to see how cool they actually are ;)**
 
 = Compatibility & Requirements =
