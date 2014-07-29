@@ -30,7 +30,7 @@ Try it it’s easy!
 * Unlimited forms and fields
 * Ready-made layouts you can adjust
 * Spam protection
-* File upload
+* *File upload*
 
 = Popular usage examples =
 
@@ -45,8 +45,8 @@ Try it it’s easy!
 * Smooth slide-in effect
 * Screen edge fixed position
 * Semi-transparent background
-* Multiple lightbox appear effects
-* Accordion
+* *Multiple lightbox appear effects*
+* *Accordion*
 
 **Visit our [demo page](http://www.perfect-web.co/wordpress/contact-form#page-demo) to see how cool they actually are ;)**
 
@@ -65,34 +65,37 @@ Try it it’s easy!
 = All features =
 
 * Unlimited number of contact forms can be published at one page.
-* Unlimited number of fields type of: text, name, email, phone, subject, textarea, select list, multiple select list, single checkbox, checkboxes group, radios group, data picker with calendar, password.
+* Unlimited number of fields type of: text, name, email, *phone, subject*, textarea, *select list, multiple select list, single checkbox, checkboxes group, radios group, data picker with calendar, password*.
 * Sort fields with drag-and-drop.
 * Split fields into columns.
-* Each field can have a tooltip and validation rule, can be required or not.
-* Display labels: inline with fields, above or inside.
-* Display any text or HTML code between fields.
-* Upload files selected with a button or by drag-and-drop, set: size limit, files limit, extension types.
-* Attach files directly to email or as links to files stored on server.
+* Each field can have a *tooltip* and validation rule, can be required or not.
+* Display labels: above fields, *inline with fields* or *inside*.
+* *Display any text or HTML code between fields*.
+* *Upload files selected with a button or by drag-and-drop, set: size limit, files limit, extension types.*
+* *Attach files directly to email or as links to files stored on server.*
 * Advanced spam protection without any codes.
-* Multiple email recipients, BCC, reply to email, WordPress Admin as recipient.
-* Drop-down list of recipients.
-* Automatically fill in User name and email if is logged in.
+* Multiple email recipients, *BCC*, *reply to email*, WordPress Admin as recipient.
+* *Drop-down list of recipients.*
+* *Automatically fill in User name and email if is logged in.*
 * Send a copy of email to sender.
-* Select predefined email template, set text or HTML format.
+* Select predefined email template, set text or *HTML* format.
 * Set custom success message and email subject.
-* Ticket system - adds to subject unique date-time based ID or number counter.
-* Set custom toggler tab name, display it vertical or horizontal or hide it.
-* Track User informations: IP address, browser ([requires 3rd-part plugin](http://wordpress.org/plugins/php-browser-detection/)), operating system, screen resolution.
-* Track page title and URL from which email was sent.
-* Page redirect to URL after sending email.
-* Google Analytics Tracking Page View or Event after sending email.
-* Google AdWords and Microsoft adCenter Conversion Tracking.
+* *Ticket system - adds to subject unique date-time based ID or number counter.*
+* *Set custom toggler tab name, display it vertical or horizontal or hide it.*
+* *Track User informations: IP address, browser ([requires 3rd-part plugin](http://wordpress.org/plugins/php-browser-detection/)), operating system, screen resolution.*
+* *Track page title and URL from which email was sent.*
+* *Page redirect to URL after sending email.*
+* *Google Analytics Tracking Page View or Event after sending email.*
+* *Google AdWords and Microsoft adCenter Conversion Tracking.*
+* *Open contact form with menu item.*
 * Open contact form with custom link, image or any HTML code.
-* Preload fields values by URL or link.
-* Auto-open on page load, or on scroll, or on exit - when mouse pointer goes above top edge of page (experimental, not always works in IE 7 and 8).
-* Auto-open limit count - open for first X-times after page refresh and selected event.
-* Auto-open delay - if not opened earlier by user.
-* Auto-close delay - if not closed earlier by user.
+* *Preload fields values by URL or link.*
+* *Auto-open on page load, or on scroll, or on exit - when mouse pointer goes above top edge of page (experimental, not always works in IE 7 and 8).*
+* *Auto-open limit count - open for first X-times after page refresh and selected event.*
+* *Auto-open delay - if not opened earlier by user.*
+* *Auto-close delay - if not closed earlier by user.*
+
+*Functions written in italic may be limited in a free version*
 
 == Installation ==
 
