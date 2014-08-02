@@ -5,8 +5,8 @@ Tags: contact form, file upload, AJAX, responsive contact form, multiple contact
 Requires at least: 3.5.0
 Tested up to: 3.9.1
 Stable tag: 1.0.5
-License: Perfect Web License
-License URI: http://www.perfect-web.co/license
+License: GNU/GPL
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Intuitive for dummies. Handy for pros!
 

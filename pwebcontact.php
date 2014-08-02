@@ -7,7 +7,7 @@
  * Text Domain: pwebcontact
  * Author: Piotr Moćko
  * Author URI: http://www.perfect-web.co
- * License: Perfect Web License http://www.perfect-web.co/license
+ * License: GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  */
 
 // No direct access
