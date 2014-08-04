@@ -258,7 +258,7 @@ $message =
 			
 			<?php if ($params->get('msg_position', 'after') == 'after') echo $message; ?>
 			
-			<?php echo PWebContact::getHiddenFields(); ?>
+			<?php echo PWebContact::getHiddenFields($form_id); ?>
 			<input type="hidden" name="<?php echo wp_create_nonce('pwebcontact'.$form_id); ?>" value="1" id="pwebcontact<?php echo $form_id; ?>_token">
 		</form>
 		
