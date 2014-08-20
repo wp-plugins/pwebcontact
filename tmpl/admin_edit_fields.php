@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.5
+ * @version 1.0.7
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -1814,6 +1814,8 @@ $this->_set_free_options('field_types', array(
                         'disabled' => true,
                         'type' => 'textarea',
                         'name' => 'values',
+                        'index' => 'X',
+                        'group' => 'fields',
                         'label' => 'Recipients',
                         'desc' => 'Shows drop-down list of available recipients in contact form. Put each recipient in new line, separate email address from name with &#x7c; (pipe character). Use following pattern: email&#x7c;name, e.g.: <strong>support@perfect-web.co&#x7c;Support</strong>. Do not enter new line after last recipient! Email addresses will not be visible in contact forms to protect them from spam bots. Only name of recipients will be shown on list.',
                         'class' => 'pweb-filter-emailRecipients pweb-input-large'

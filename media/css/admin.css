@@ -1,5 +1,5 @@
 /**
- * @version 1.0.5
+ * @version 1.0.7
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -141,7 +141,8 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
     margin: 0;
     padding: 10px 10px 20px;
 }
-.pweb-panels.theme-browser .theme .theme-screenshot {
+.pweb-panels.theme-browser .theme .theme-screenshot,
+.pweb-panels.theme-browser .theme:hover .theme-screenshot{
     height: 150px;
     padding-top: 0;
     text-align: center;

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.5
+ * @version 1.0.6
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
