@@ -112,10 +112,10 @@ Try it, it’s easy!
 
 = Support =
 
-To ask a support question about Perfect Contact Form or post a bug report, fill a [support form](http://www.perfect-web.co/wordpress/contact-form/documentation) on our website. We will get back to you within 24h for sure, usually it takes less time. 
+To ask a support question about Perfect Contact Form or post a bug report, fill a [support form](http://www.perfect-web.co/wordpress/contact-form/documentation) on our website. We will get back to you within 24h for sure, usually it takes less time. We are working from Monday to Friday 10 - 15 GMT+2, except holidays - actual informations on our website.
 
 
-= 1.How to change Toggler tab height/width? =
+= 1. How to change Toggler tab height/width? =
 
 Please edit toggler height/width in our plugin configuration > Theme > Advanced > Toggler (at the bottom).
 
