@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.6
+ * @version 1.0.9
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -43,14 +43,10 @@ $message =
 	
     
     <div id="pwebcontact<?php echo $form_id; ?>_box" class="pwebcontact-box <?php echo $params->get('moduleClass').' '.$params->get('boxClass'); ?>" dir="<?php echo $params->get('rtl', 0) ? 'rtl' : 'ltr'; ?>">
-	<div id="pwebcontact<?php echo $form_id; ?>_container" class="pwebcontact-container">
+	<div id="pwebcontact<?php echo $form_id; ?>_container" class="pwebcontact-container<?php if ($layout == 'modal' AND (int)$params->get('bootstrap_version', 2) === 3) echo ' modal-dialog'; ?>">
 	
-		<?php 
-		if ($layout == 'slidebox' AND $params->get('handler') == 'tab' AND $params->get('toggler_slide')) echo $toggler;
+		<?php if ($layout == 'slidebox' AND $params->get('handler') == 'tab' AND $params->get('toggler_slide')) echo $toggler; ?>
 		
-		if ($layout == 'accordion' OR ($layout == 'modal' AND !$params->get('modal_disable_close', 0))) : ?>
-		<button type="button" class="pwebcontact<?php echo $form_id; ?>_toggler pweb-button-close" aria-hidden="true"<?php if ($value = $params->get('toggler_name_close')) echo ' title="'.$value.'"' ?> data-role="none">&times;</button>
-		<?php endif; ?>
 		
 		<?php if ($layout == 'accordion') : ?><div class="pweb-arrow"></div><?php endif; ?>
 		
