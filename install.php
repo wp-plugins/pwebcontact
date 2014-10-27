@@ -79,8 +79,10 @@ function pwebcontact_install_upload_dir() {
     
     $upload_dir = wp_upload_dir();
     $path = $upload_dir['basedir'].'/pwebcontact/';
+    
+    require_once ABSPATH . 'wp-admin/includes/file.php';
 
-    if (WP_Filesystem()) {
+    if (function_exists('WP_Filesystem') AND WP_Filesystem()) {
         global $wp_filesystem;
 
         // create wirtable upload path

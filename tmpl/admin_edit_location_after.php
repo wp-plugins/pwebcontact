@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -108,50 +108,10 @@ function_exists('add_action') or die;
 )); ?>
 
 <div class="pweb-advanced-options">
-    <a href="#" class="pweb-advanced-options-toggler">
+    <button type="button" class="button pweb-advanced-options-toggler">
         <i class="glyphicon glyphicon-cog"></i> <span><?php _e( 'Advanced', 'pwebcontact' ); ?></span> <i class="glyphicon glyphicon-chevron-down"></i>
-    </a>
+    </button>
     <div class="pweb-advanced-options-content">
-        <?php echo $this->_get_field(array(
-            'type' => 'radio',
-            'name' => 'accordion_boxed',
-            'label' => 'Show accordion box with arrow',
-            'tooltip' => 'Surround contact form with box and show arrow at top of this box.',
-            'default' => 1,
-            'parent' => array('layout_type_accordion'),
-            'class' => 'pweb-radio-group',
-            'options' => array(
-                array(
-                    'value' => 0,
-                    'name' => 'No'
-                ),
-                array(
-                    'value' => 1,
-                    'name' => 'Yes'
-                )
-            )
-        )); ?>
-        
-        <?php echo $this->_get_field(array(
-            'type' => 'radio',
-            'name' => 'toggler_slide',
-            'label' => 'Slide Toggler Tab with box',
-            'tooltip' => 'Slide `Toggler Tab` with contact form. Works only with `Slide in Box` layout except on left and right side with horizontal `Toggler Tab`.',
-            'default' => 0,
-            'parent' => array('layout_type_slidebox'),
-            'class' => 'pweb-radio-group',
-            'options' => array(
-                array(
-                    'value' => 0,
-                    'name' => 'No'
-                ),
-                array(
-                    'value' => 1,
-                    'name' => 'Yes'
-                )
-            )
-        )); ?>
-        
         <?php echo $this->_get_field(array(
             'type' => 'select',
             'name' => 'effect_transition',

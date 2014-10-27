@@ -1,5 +1,5 @@
 /**
- * @version 1.0.7
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -228,8 +228,8 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
 
 
 .pweb-steps {
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-left: 20px;
 } 
 .pweb-steps button.button, .pweb-steps button.button:focus {
     vertical-align: middle;
@@ -245,25 +245,80 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
 }
 
 
-#pweb-theme-preview {
+#pweb-themes-coverflow {
     text-align: center;
 }
-#pweb-theme-preview img {
+#pweb-themes-coverflow .pweb-theme-image {
+    overflow: hidden;
+    position: relative;
     margin: 0 auto;
-    background: #FFFFFF;
-    padding: 10px;
+    background: #fff;
     -webkit-box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.1);
 }
-#pweb-theme-preview a + i.glyphicon-refresh,
-#pweb_load_fields + i.glyphicon-refresh,
-.pweb-load-email-tmpl + i.glyphicon-refresh {
-    margin-left: 5px;
+#pweb-themes-coverflow .pweb-theme-image img {
+    margin: 0 auto;
+    border: 10px solid #FFFFFF;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#pweb-themes-coverflow .pweb-theme-image .glyphicon {
+    margin: 50px auto;
+    font-size: 100px;
+}
+#pweb-themes-coverflow .pweb-theme .pweb-theme-badge,
+#pweb-themes-coverflow .pweb-theme .pweb-theme-badge-free{
+	position: absolute;
+	top: 15px;
+	right: -45px;
+	width: 150px;
+	padding: 2px 0 2px;
+	text-align: center;
+	font-size: 24px;
+	line-height: 30px;
+	color: #fff;
+	background-color: #AA0000;
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); /* IE 9 */
+	-webkit-transform:rotate(45deg); /* Safari and Chrome */
+}
+#pweb-themes-coverflow .pweb-theme .pweb-theme-badge-free {
+	background-color: #009E0A;
+}
+#pweb-themes-coverflow.flipster-coverflow .flip-items {
+    padding-bottom: 2%;
+}
+#pweb-themes-coverflow-controls {
+    text-align: center;
+    margin: 0 auto 20px auto;
+}
+#pweb-themes-coverflow-controls .button {
+    vertical-align: middle;
+}
+#pweb-themes-coverflow-control-load {
+    font-size: 20px;
+    height: 42px;
+    line-height: 36px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#pweb-themes-coverflow-control-reset {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
-
+.pweb-width-33 {
+    width: 33.3%;
+    float: left;
+}
 .pweb-width-40 {
     width: 39.9%;
+    float: left;
+}
+.pweb-width-50 {
+    width: 49.9%;
     float: left;
 }
 .pweb-width-60 {
@@ -479,32 +534,41 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
 .pweb-advanced-options.pweb-advanced-options-active {
     margin-bottom: 10px;
 }
-.pweb-advanced-options-toggler {
-    display: block;
-    margin-bottom: 10px;
+.pweb-advanced-options .pweb-advanced-options-toggler {
+    display: inline-block;
+    margin-bottom: 10px !important;
     font-weight: bold;
     font-size: 15px;
     text-decoration: none;
 }
-.pweb-advanced-options-toggler span {
+.pweb-advanced-options .pweb-advanced-options-toggler span {
+    margin: 0 10px;
+}
+.pweb-advanced-options a.pweb-advanced-options-toggler span {
     text-decoration: underline;
 }
-.pweb-advanced-options-toggler .glyphicon,
-.pweb-advanced-options-toggler .glyphicon:before {
+.pweb-advanced-options .pweb-advanced-options-toggler .glyphicon,
+.pweb-advanced-options .pweb-advanced-options-toggler .glyphicon:before {
     text-decoration: none;
 }
-.pweb-advanced-options-content {
+.pweb-advanced-options .pweb-advanced-options-content {
     display: none;
 }
 #pweb_fields_types .pweb-advanced-options {
     padding-top: 20px;
+}
+#pweb-tab-theme-content .pweb-advanced-options-toggler {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 
 .pweb-field {
     margin-bottom: 20px;
 }
-.pweb-field > label + .pweb-field-control {
+.pweb-field > label + .pweb-field-control,
+.pweb-field > label + span.pweb-pro + .pweb-field-control{
     margin-top: 10px;
 }
 .pweb-field .pweb-field-control {
@@ -518,6 +582,9 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
     display: inline-block;
     margin-right: 20px;
     min-width: 50px;
+}
+.pweb-radio-group-vertical .pweb-field-option {
+    display: block;
 }
 
 .pweb-field.pweb-desc p {
@@ -781,6 +848,17 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
 #pweb_fields .pweb-custom-fields-type:hover {
     border-color: rgba(0,0,0, 0.6);
 }
+#pweb_fields .pweb-fields-types .pweb-custom-fields-single.pweb-custom-fields-disabled {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    cursor: not-allowed;
+}
+#pweb_fields .pweb-fields-types .pweb-custom-fields-separator {
+    float: left;
+    padding: 20px 0;
+    width: 100%;
+}
+
 .pweb-custom-field-type-email,
 .pweb-custom-field-type-name,
 .pweb-custom-field-type-phone,
@@ -992,6 +1070,11 @@ code {
 .pweb-alert .button,
 .pweb-alert .button:focus {
     vertical-align: middle;
+}
+
+.pweb-field-control .pweb-alert {
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 /* jQuery UI Tooltips */

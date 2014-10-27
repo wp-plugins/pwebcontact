@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.5
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -24,8 +24,8 @@ class PWebContact_Admin {
     protected $errors = array();
     protected $requirements = array();
     
-    protected $documentation_url = 'http://www.perfect-web.co/wordpress/contact-form/documentation';
-    protected $buy_url = 'http://www.perfect-web.co/wordpress/contact-form/subscriptions?tmpl=component';
+    protected $documentation_url = '';
+    protected $buy_url = '';
 
 
     protected static $pro = array(
@@ -34,153 +34,73 @@ class PWebContact_Admin {
         'field_types' => array(),
         'settings' => array(),
         'params' => array(
-            'accordion_boxed',
-			'adcenter_url',
-			'adwords_url',
-			'attachment_delete',
+            'attachment_delete',
 			'attachment_type',
-			'bg_color',
+            'bg_color',
 			'bg_image',
 			'bg_opacity',
 			'bg_padding',
 			'bg_padding_position',
 			'bg_position',
-			'button_reset',
+            'bg_repeat',
+            'bg_size',
 			'buttons_fields_color',
 			'buttons_text_color',
-			'close_delay',
-			'close_other',
-			'close_toggler',
-			'cookie_lifetime',
-			'effect::modal:fade',
-            'effect::modal:drop',
-            'effect::modal:rotate',
-            'effect::modal:square',
-            'effect::modal:smooth',
-            'effect::accordion:slide_down',
-            'effect::static:none',
-			'effect_duration',
-			'effect_transition',
-			//'email_admin_tmpl',
-			'email_admin_tmpl_format',
-			//'email_admin_tmpl_list',
-			'email_autoreply_tmpl',
-			'email_autoreply_tmpl_format',
-			//'email_autoreply_tmpl_list',
-			'email_bcc',
-			//'email_cms_user',
-			'email_copy::1',
-			'email_from',
-			'email_from_name',
-			'email_replyto',
-			'email_replyto_name',
-			//'email_subject',
-			'email_subject_sfx',
-			//'email_to',
-			//'email_user_tmpl',
-			'email_user_tmpl_format',
-			//'email_user_tmpl_list',
-			'form_font_family',
+            'email_copy::1',
+            'fields_border_color',
+            'fields_color',
+            'fields_text_color',
+            'fields_active_border_color',
+            'fields_active_color',
+            'fields_active_text_color',
+            'fields_invalid_border_color',
+            'fields_invalid_color',
+            'fields_invalid_text_color',
+            'form_font_family',
 			'form_font_size',
-			'form_width',
-			'handler::button',
-            'handler::static',
-            'handler::hidden',
-			'labels_position',
+            'gradient',
+            'labels_invalid_color',
+            'labels_position',
 			'labels_width',
-			'modal_bg',
-			'modal_disable_close',
-			'modal_opacity',
-			'msg_close_delay',
-			'msg_error_color',
-			'msg_position',
-			//'msg_success',
+            'msg_error_color',
 			'msg_success_color',
-			'offset',
-			'onclose',
-			'oncomplete',
-			'onerror',
-			'onload',
-			'onopen',
-			'open_count',
-			'open_delay',
-			'open_toggler',
-            'position::shortcode',
-			'position::widget',
-			'redirect',
-			'redirect_delay',
-			'redirect_url',
-			'reset_form',
-			'rounded',
+			'modal_bg',
+			'modal_opacity',
+            'rounded',
             'shadow',
-			'show_upload',
-			//'style_bg',
-			//'style_form',
-			//'style_toggler',
-			'text_color',
-			'ticket_enable',
+            'show_upload',
+            'text_color',
+            'ticket_enable',
 			'ticket_format',
-			'toggler_bg',
+            'toggler_bg',
 			'toggler_color',
 			'toggler_font',
 			'toggler_font_family',
 			'toggler_font_size',
-			'toggler_height',
-			'toggler_icomoon',
+            'toggler_glyphicon',
+            'toggler_icomoon',
 			'toggler_icon',
 			'toggler_icon_custom_image',
 			'toggler_icon_gallery_image',
-			'toggler_name',
-			'toggler_position',
-			'toggler_rotate',
-			'toggler_slide',
+            'toggler_rotate',
 			'toggler_vertical',
-			'toggler_width',
-			'tooltips_focus',
-			'tooltips_validation',
-			'upload_allowed_ext',
+            'upload_allowed_ext',
 			'upload_autostart',
 			'upload_files_limit',
 			'upload_max_size',
 			'upload_path',
 			'upload_show_limits',
-			'upload_size_limit',
-			'user_data',
-			'zindex'
-        )
-    );
-    
-    protected static $free = array(
-        'load' => array(),
-        'fields' => array(),
-        'field_types' => array(),
-        'settings' => array(),
-        'params' => array(
-			'effect::slidebox:slide_in',
-			'email_admin_tmpl',
-			//'email_admin_tmpl_list',
-			//'email_autoreply_tmpl_list',
-			'email_cms_user',
-            'email_copy',
-			//'email_from',
-			//'email_from_name',
-			'email_subject',
-			'email_to',
-			'email_user_tmpl',
-			//'email_user_tmpl_list',
-			'handler::tab',
-            'moduleclass_sfx',
-			'msg_success',
-            'position::footer',
-			'rtl',
-			'style_bg',
-			'style_form',
-			'style_toggler'
+			'upload_size_limit'
         )
     );
     
     
     function __construct() {
+        
+        $source = (file_exists(dirname(__FILE__).'/perfect-web.co') ? 'perfect-web.co' : 'wordpress.org');
+        
+        $this->documentation_url = 'http://www.perfect-web.co/wordpress/contact-form/documentation?utm_source=backend&utm_medium=button&utm_campaign=documentation&utm_content='.$source;
+        $this->buy_url = 'http://www.perfect-web.co/wordpress/contact-form/subscriptions?tmpl=component&utm_source=backend&utm_medium=button&utm_campaign=upgrade_to_pro&utm_content='.$source;
         
         // initialize admin view
         add_action( 'admin_init', array($this, 'init') );
@@ -195,9 +115,6 @@ class PWebContact_Admin {
     
     function init() {
         
-        if (defined('PWEBCONTACT_PRO')) {
-            $this->_check_updates();
-        }
         
         if (!isset($_GET['page']) OR $_GET['page'] !== 'pwebcontact') {
             return;
@@ -267,6 +184,11 @@ class PWebContact_Admin {
                 $this->_load_form();
                 
                 // load JS files
+                wp_enqueue_script('pwebcontact_flipster_script', plugins_url('media/js/jquery.flipster.js', __FILE__), 
+                        array(
+                            'jquery'
+                        ));
+                
                 wp_enqueue_script('pwebcontact_admin_script', plugins_url('media/js/jquery.admin-edit.js', __FILE__), 
                         array(
                             'jquery',
@@ -310,6 +232,8 @@ class PWebContact_Admin {
                 
                 // load CSS
                 wp_enqueue_style('wp-jquery-ui-dialog');
+                
+                wp_enqueue_style('pwebcontact_flipster_style', plugins_url('media/css/jquery.flipster.css', __FILE__));
             }
         }
         elseif ( $task == 'save' AND isset($_POST['id'])) {
@@ -559,29 +483,18 @@ class PWebContact_Admin {
             if (isset($_GET['ajax']) AND isset($_POST['format']) AND $_POST['format'] AND isset($_POST['tmpl']) AND $_POST['tmpl']) {
                 
                 $path = dirname(__FILE__) .'/media/email_tmpl/'. basename($_POST['tmpl']) . ((int)$_POST['format'] === 2 ? '.html' : '.txt');
-                if (is_file($path)) {
+                if (function_exists('WP_Filesystem') AND WP_Filesystem()) {
+                    global $wp_filesystem;
+                    if ($wp_filesystem->is_file($path)) {
+                        $content = $wp_filesystem->get_contents($path);
+                    }
+                }
+                elseif (is_file($path)) {
                     $content = file_get_contents($path);
                 }
             }
             
             header('Content-type: text/plain');
-            die( $content );
-        }
-        elseif ( $task == 'load_theme' ) {
-            
-            check_ajax_referer( 'load-theme' );
-            //wp_verify_nonce( $_POST['_wp_nonce'], 'load-theme' );
-            
-            $content = '';
-            if (isset($_GET['ajax']) AND isset($_POST['theme']) AND $_POST['theme']) {
-                
-                $path = dirname(__FILE__) .'/media/theme_settings/'. basename($_POST['theme']) . '.txt';
-                if (is_file($path)) {
-                    $content = file_get_contents($path);
-                }
-            }
-            
-            header('Content-type: application/json');
             die( $content );
         }
         elseif ( $task == 'load_fields' ) {
@@ -593,7 +506,13 @@ class PWebContact_Admin {
             if (isset($_GET['ajax']) AND isset($_POST['fields']) AND $_POST['fields']) {
                 
                 $path = dirname(__FILE__) .'/media/fields_settings/'. basename($_POST['fields']) . '.txt';
-                if (is_file($path)) {
+                if (function_exists('WP_Filesystem') AND WP_Filesystem()) {
+                    global $wp_filesystem;
+                    if ($wp_filesystem->is_file($path)) {
+                        $content = $wp_filesystem->get_contents($path);
+                    }
+                }
+                elseif (is_file($path)) {
                     $content = file_get_contents($path);
                 }
             }
@@ -620,7 +539,8 @@ class PWebContact_Admin {
         }
         
         add_menu_page($title, __('Perfect Contact Forms', 'pwebcontact'), 
-                'manage_options', 'pwebcontact', array($this, 'configuration'));
+                'manage_options', 'pwebcontact', array($this, 'configuration'),
+                plugins_url('media/images/admin/menu-icon.png', dirname(__FILE__).'/pwebcontact.php'));
     }
     
     
@@ -628,7 +548,6 @@ class PWebContact_Admin {
 
         if ( $file == plugin_basename(dirname(__FILE__).'/pwebcontact.php') ) {
             $links[] = '<a href="' . admin_url( 'admin.php?page=pwebcontact' ) . '">'.__( 'Forms list', 'pwebcontact' ).'</a>';
-            $links[] = '<a href="' . admin_url( 'admin.php?page=pwebcontact&task=settings' ) . '">'.__( 'Settings' ).'</a>';
         }
 
         return $links;
@@ -639,10 +558,9 @@ class PWebContact_Admin {
 
 ?>
 <script type="text/javascript">
-    var pwebcontact_admin = pwebcontact_admin || {};
-    pwebcontact_admin.is_pro = <?php echo (defined('PWEBCONTACT_PRO') ? 'true' : 'false'); ?>;
-    pwebcontact_admin.plugin_url = "<?php echo plugins_url('pwebcontact/'); ?>";
-    pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
+var pwebcontact_admin = pwebcontact_admin || {};
+pwebcontact_admin.plugin_url = "<?php echo plugins_url('pwebcontact/'); ?>";
+pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
 </script>
 <?php
     }
@@ -922,7 +840,7 @@ class PWebContact_Admin {
     <?php 
     if ($this->view == 'list') : 
         
-        if (count($this->data)) : 
+        if (count($this->data->forms)) : 
             $this->_display_forms_list();
         else : 
             $this->_display_create_form();
@@ -936,9 +854,14 @@ class PWebContact_Admin {
     
     endif; ?>
     
+    <hr>
+    
     <p class="pweb-copyrights">
-		Copyright &copy; 2014 Perfect Web sp. z o.o., All rights reserved.
-		Distributed under <a href="http://www.perfect-web.co/license" target="_blank"><strong>Perfect Web License</strong></a>.<br>
+		Copyright &copy; 2014
+        <a href="http://www.perfect-web.co/wordpress/contact-form" target="_blank"><strong>Perfect Web sp. z o.o.</strong></a>, 
+        All rights reserved.
+		Distributed under 
+        <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_blank"><strong>GNU/GPL</strong></a>.<br>
 		All other trademarks and copyrights are property of their respective owners.
 	</p>
 </div>
@@ -1007,6 +930,53 @@ class PWebContact_Admin {
         
         $this->_load_tmpl('edit');
     }
+    
+    
+    protected function _get_themes() {
+        
+        $themes = array();
+        
+        $active_theme = $this->_get_param('theme', 'free');
+        
+        $themes_url = plugins_url('/media/themes/', dirname(__FILE__) .'/pwebcontact.php');
+        $media_dir = dirname(__FILE__) .'/media/';
+        
+        $dir = new DirectoryIterator( $media_dir . 'themes' );
+        foreach( $dir as $item ) {
+            
+            if ($item->isFile() AND preg_match('/\.json$/i', $item->getFilename())) {
+                
+                $basename = $item->getBasename('.json');
+                
+                
+                if (function_exists('WP_Filesystem') AND WP_Filesystem()) {
+                    global $wp_filesystem;
+                    $has_image = $wp_filesystem->is_file( $item->getPath() . '/' . $basename . '.jpg' );
+                    $settings = $wp_filesystem->get_contents($item->getPathname());
+                }
+                else {
+                    $has_image = is_file( $item->getPath() . '/' . $basename . '.jpg' );
+                    $settings = file_get_contents($item->getPathname());
+                }
+                
+                if ($settings) {
+                
+                    $settings = json_decode($settings);
+                    
+                    $theme = new stdClass();
+                    $theme->title = isset($settings->title) ? $settings->title : ucfirst( str_replace('_', ' ', $basename) );
+                    $theme->description = isset($settings->description) ? $settings->description : '';
+                    $theme->image = $has_image ? $themes_url . $basename . '.jpg' : null;
+                    $theme->settings = isset($settings->params) ? json_encode($settings->params) : '{}';
+                    $theme->is_active = ($active_theme === $basename);
+                    
+                    $themes[$basename] = $theme;
+                }
+            }
+        }
+        
+        return $themes;
+    }
 
 
     protected function _get_version() {
@@ -1047,18 +1017,13 @@ class PWebContact_Admin {
             'header' => null,
             'parent' => null,
             'disabled' => false,
-            'is_pro' => null,
-            'is_free' => null
+            'is_pro' => null
         ), $opt);
         
         extract( $opt );
         
-        if (!defined('PWEBCONTACT_PRO') AND $is_pro === null) {
+        if ($is_pro === null) {
             $opt['is_pro'] = $is_pro = in_array($name, self::$pro[$group]);
-            
-            if ($is_pro === false AND $is_free === null) {
-                $opt['is_free'] = $is_free = in_array($name, self::$free[$group]);
-            }
         }
         
         if ($parent !== null) {
@@ -1095,8 +1060,7 @@ class PWebContact_Admin {
             'label' => null,
             'tooltip' => null,
             'required' => false,
-            'is_pro' => null,
-            'is_free' => null
+            'is_pro' => null
         ), $opt);
         
         extract( $opt );
@@ -1104,12 +1068,8 @@ class PWebContact_Admin {
         if (empty($id)) {
             $id = 'pweb_'. $group .'_'. ($index !== null ? $index.'_' : '') . $name;
         }
-        if (!defined('PWEBCONTACT_PRO') AND $is_pro === null) {
+        if ($is_pro === null) {
             $is_pro = in_array($name, self::$pro[$group]);
-            
-            if ($is_pro === false AND $is_free === null) {
-                $is_free = in_array($name, self::$free[$group]);
-            }
         }
         
         return '<label for="'.esc_attr($id).'" id="'.esc_attr($id).'-lbl"' .
@@ -1120,8 +1080,7 @@ class PWebContact_Admin {
                 ($required ? ' <span class="pweb-star">*</span>' : '') .
                 
                 '</label>' .
-                ($is_pro === true ? $this->_display_badge_pro() : '') .
-                ($is_free === true ? $this->_display_badge_free() : '');
+                ($is_pro === true ? $this->_display_badge_pro() : '');
     }
     
     
@@ -1143,12 +1102,12 @@ class PWebContact_Admin {
             'options' => array(),
             'is_parent' => false,
             'is_pro' => null,
-            'is_free' => null
+            'html_after' => null
         ), $opt);
         
         extract( $opt );
         
-        $html = $html_after = '';
+        $html = '';
         
         
         if (empty($id)) {
@@ -1158,14 +1117,9 @@ class PWebContact_Admin {
         
         $field_name = esc_attr($group. ($index !== null ? '['.$index.']' : '') . '['.$name.']');
         
-        if (!defined('PWEBCONTACT_PRO') AND $is_pro === null) {
+        if ($is_pro === null) {
             $is_pro = in_array($name, self::$pro[$group]);
-            
-            if ($is_pro === false AND $is_free === null) {
-                $is_free = in_array($name, self::$free[$group]);
-            }
         }
-        
         
         if (!isset($attributes['class'])) {
             $attributes['class'] = '';
@@ -1415,8 +1369,7 @@ class PWebContact_Admin {
                         }
                     }
                     
-                    $option['is_pro'] = (!defined('PWEBCONTACT_PRO') AND $is_pro !== true AND in_array($name.'::'.$option['value'], self::$pro[$group]));
-                    $option['is_free'] = (!defined('PWEBCONTACT_PRO') AND in_array($name.'::'.$option['value'], self::$free[$group]));
+                    $option['is_pro'] = ($is_pro !== true AND in_array($name.'::'.$option['value'], self::$pro[$group]));
                     
                     $option_id = $id .'_'. preg_replace('/[^a-z0-9-_]/i', '', str_replace(':', '_', $option['value']));
                     
@@ -1431,13 +1384,11 @@ class PWebContact_Admin {
                             . ' class="'
                             . (($is_parent === true OR (isset($option['is_parent']) AND $option['is_parent'] === true)) ? 'pweb-parent' : '')
                             . ($option['is_pro'] ? ' pweb-pro' : '')
-                            . ($option['is_free'] ? ' pweb-free' : '')
                             . '">';
                     
                     $html .= '<label for="'.$option_id.'" id="'.$option_id.'-lbl"'
                             . '>'. __($option['name'], 'pwebcontact') . (isset($option['after']) ? $option['after'] : '')
                             . ($option['is_pro'] ? $this->_display_badge_pro() : '')
-                            . ($option['is_free'] ? $this->_display_badge_free() : '')
                             . '</label>';
                     
                     $html .= '</div>';
@@ -1460,19 +1411,9 @@ class PWebContact_Admin {
     
     protected function _display_badge($field_type = null)
     {
-        if (!defined('PWEBCONTACT_PRO')) {
-            if (in_array($field_type, self::$pro['field_types'])) {
-                return $this->_display_badge_pro();
-            }
-            elseif (in_array($field_type, self::$free['field_types'])) {
-                return $this->_display_badge_free();
-            }
+        if (in_array($field_type, self::$pro['field_types'])) {
+            return $this->_display_badge_pro();
         }
-    }
-    
-    protected function _display_badge_free()
-    {
-        return ' <span class="pweb-free">'.__('FREE', 'pwebcontact').'</span>';
     }
     
     protected function _display_badge_pro()
@@ -1482,17 +1423,12 @@ class PWebContact_Admin {
     
     protected function _is_pro_field($field_type = null)
     {
-        return !defined('PWEBCONTACT_PRO') AND in_array($field_type, self::$pro['field_types']);
+        return in_array($field_type, self::$pro['field_types']);
     }
     
     protected function _set_pro_options($group = null, $options = array())
     {
         self::$pro[$group] = $options;
-    }
-    
-    protected function _set_free_options($group = null, $options = array())
-    {
-        self::$free[$group] = $options;
     }
     
     private function _convert_size($str)
@@ -1595,7 +1531,7 @@ class PWebContact_Admin {
             
             $path = dirname(__FILE__).'/media/cache/';
             
-            if (WP_Filesystem()) {
+            if (function_exists('WP_Filesystem') AND WP_Filesystem()) {
                 global $wp_filesystem;
 
                 if (!$wp_filesystem->is_writable($path)) {
@@ -1635,7 +1571,7 @@ class PWebContact_Admin {
             $upload_dir = wp_upload_dir();
             $path = $upload_dir['basedir'].'/pwebcontact/'.$this->id.'/';
             
-            if (WP_Filesystem()) {
+            if (function_exists('WP_Filesystem') AND WP_Filesystem()) {
                 global $wp_filesystem;
 
                 // create wirtable upload path

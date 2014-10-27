@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form, contact me, call me back, popup contact form, popup form, reservation form, contact helpdesk form, feedback form, post feedback, form, resnponsive form, rwd form, contacts form plugin, easy contact form plugin, button, contact, contacts, cnotact, conact, contatc, send copy, feedback, request, send
 Requires at least: 3.5.0
 Tested up to: 4.0.0
-Stable tag: 1.0.10
+Stable tag: 2.0.0
 License: GNU/GPL
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -46,8 +46,15 @@ Try it, it’s easy!
 * Smooth slide-in effect
 * Screen edge fixed position
 * Semi-transparent background
-* *Multiple lightbox appear effects*
-* *Accordion*
+* Multiple lightbox appear effects
+* Accordion
+
+= Beautiful ready-made Themes =
+
+* *Inspired by the newest Internet trends*
+* *Installed in one-click*
+* *Fully adjustable*
+* *Regularly updated*
 
 *Functions written in italic may be limited in a free version*
 
@@ -63,40 +70,40 @@ Try it, it’s easy!
 * Supports all modern browsers, IE9+, partly IE7-8
 * Mobile ready
 * Responsive, RWD
-* Requires 3rd-part plugin for [browser detection](http://wordpress.org/plugins/php-browser-detection/)
+* Requires 3rd-party plugin for [browser detection](http://wordpress.org/plugins/php-browser-detection/)
 
 = All features =
 
 * Unlimited number of contact forms can be published at one page.
-* Unlimited number of fields type of: text, name, email, *phone, subject*, textarea, *select list, multiple select list, single checkbox, checkboxes group, radios group, data picker with calendar, password* in your contact form.
+* Unlimited number of fields type of: text, name, email, textarea, *phone, subject, select list, multiple select list, single checkbox, checkboxes group, radios group, data picker with calendar, password* in your contact form.
 * Sort fields with drag-and-drop to easily create your contact form.
 * Split fields into columns to make your contact form more useful
-* Each field can have a *tooltip* and validation rule, can be required or not.
+* Each field can have a tooltip and validation rule, can be required or not.
 * Display labels: above fields, *inline with fields* or *inside*.
 * *Display any text or HTML code between fields* in contact form.
 * *Upload files selected with a button or by drag-and-drop using Perfect Contact Form, set: size limit, files limit, extension types.*
 * *Attach files directly to email or as links to files stored on server.*
 * Advanced spam protection without any codes to make your contact form safer.
-* Multiple email recipients, *BCC*, *reply to email*, WordPress Admin as recipient.
+* Multiple email recipients, BCC, reply to email, WordPress Admin as recipient.
 * *Drop-down list of recipients.*
-* *Automatically fill in User name and email if is logged in.*
+* Automatically fill in User name and email if is logged in.
 * Send a copy of email to sender.
-* Select predefined email template, set text or *HTML* format to make your contact form more attractive.
+* Select predefined email template, set text or HTML format to make your contact form more attractive.
 * Set custom success message and email subject.
 * *Ticket system - adds to subject unique date-time based ID or number counter.*
-* *Set custom toggler tab name, display it vertical or horizontal or hide it.* to make your contact form more visible. 
+* Set custom toggler tab name, display it vertical or horizontal or hide it. to make your contact form more visible. 
 * *Track User informations: IP address, browser ([requires 3rd-part plugin](http://wordpress.org/plugins/php-browser-detection/)), operating system, screen resolution.*
-* *Track page title and URL from which email was sent.*
-* *Page redirect to URL after sending email.*
-* *Google Analytics Tracking Page View or Event after sending email.* to check your contact form efficiency. 
-* *Google AdWords and Microsoft adCenter Conversion Tracking.*
+* Track page title and URL from which email was sent.
+* Page redirect to URL after sending email.
+* Google Analytics Tracking Page View or Event after sending email. to check your contact form efficiency. 
+* Google AdWords and Microsoft adCenter Conversion Tracking.
 * *Open contact form with menu item.*
 * Open contact form with custom link, image or any HTML code.
-* *Preload fields values by URL or link.*
-* *Auto-open of contact form on page load, or on scroll, or on exit - when mouse pointer goes above top edge of page (experimental, not always works in IE 7 and 8).*
-* *Auto-open limit count - open contact form for first X-times after page refresh and selected event.*
-* *Auto-open delay - if contact form not opened earlier by user.*
-* *Auto-close delay - if contact form not closed earlier by user.*
+* Preload fields values by URL or link.
+* Auto-open of contact form on page load, or on scroll, or on exit - when mouse pointer goes above top edge of page (experimental, not always works in IE 7 and 8).
+* Auto-open limit count - open contact form for first X-times after page refresh and selected event.
+* Auto-open delay - if contact form not opened earlier by user.
+* Auto-close delay - if contact form not closed earlier by user.
 
 *Functions written in italic may be limited in a free version*
 
@@ -166,28 +173,51 @@ Yes it will, however you only get access to new versions and support for as long
 == Screenshots ==
 
 01. Slide contact form from any page edge
-02. Select predefined colors of contact form fields and buttons, background and opening tab
+02. Change any colors of contact form fields, buttons, background and opening tab or edit CSS file for free.
 03. Create contact form with unlimited fields, display labels above fields, inline with them or inside as placeholder
 04. Display contact form in modal window (lightbox)
 05. Display opening tab horizontal or vertical
-06. Display static contact form in widget or insite with shortcode. You can also display form in accordion.
-07. Step 1 - you can decide here where and with what effects you want your form displayed
-08. Step 1 - you can decide here where and with what effects you want your form displayed
-09. Step 1 - you can decide here where and with what effects you want your form displayed
+06. Display static contact form in widget or insite with shortcode. You can also display contact form in accordion.
+07. Step 1 - select starting position of your contact form
+08. Step 1 - select effect which you want to use for displayoing your contact form
+09. Step 1 - you can decide here where your contact form should be visible: on all pages, on selected with shortcode or in widget.
 10. Step 2 - use our easy drag & drop form builder to create your own form
-11. Step 2 - use our easy drag & drop form builder to create your own form
-12. Step 3 - you can choose one of predefined theme or create your own
+11. Step 2 - each field has advanced options with label, tooltip and many others
+12. Step 3 - you can choose one of predefined themes or create your own for free by editing CSS file
 13. Step 4 - choose predefined anwser scheme or create your own
 14. Step 5 - you can check here if you you did everything needed to publish your contact form
 15. Create unlimited number of contact forms
 16. Step 1 - advanced options of layout
-17. Step 1 - advanced options of display effects
-18. Step 3 - advanced options of theme
-19. Step 4 - advanced options of email
-20. Very advanced options for web developers
-21. Tips for opening contact form with menu item or custom HTML/JavaScript code
+17. Step 3 - theme customizer
+18. Step 4 - advanced options of email
+19. Step 4 - email template variables
+20. Tips for opening contact form with menu item or custom HTML/JavaScript code
+21. Very advanced options for web developers
 
 == Changelog ==
+
+= 2.0.0 PRO / 27-10-2014 =
+* Pretty themes with customizer
+* Improved caching CSS and Toggler images with text
+* Added WordPress PHP action before email send, e.g. to store data
+
+= 2.0.0 / 27-10-2014 =
+* Unlocked most of PRO options
+* Unlocked layouts: slidebox, lightbox, accordion, static
+* Unlocked email subject, BCC and Reply-To
+* Unlocked HTML email templates
+* Unlocked tooltips
+* Unlocked Toggler Tab name
+* Unlocked animation effects and duration
+* Unlocked Google Analytics and AdWords tracking
+* Unlocked page redirect after email has been sent
+* Unlocked auto open and close events
+* Unlocked open contact form with custom link
+* Unlocked preload fields values by URL or link
+* Unlocked JavaScript events
+* Unlocked custom validators
+* Added new option to disable scrolling page to success message
+* Added new option to disable caching CSS in a file
 
 = 1.0.10 / 18-09-2014 =
 * fixed vertical toggler text on some servers with PHP 5.3 and GD 2.0.34, mainly for language ru-center
@@ -228,6 +258,9 @@ Yes it will, however you only get access to new versions and support for as long
 * First release
 
 == Upgrade Notice ==
+
+= 2.0.0 =
+New version with redesingned CSS structure. After upgrade FREE version you will lost predefined styles, but you will get many other options form PRO version, like layouts. After upgrade PRO version you will get new pretty themes and customizer.
 
 = 1.0.4 =
 To update PRO version download it from Perfect-Web.co website and upload by FTP. After this upadte you will be able to automatically update PRO version from your WordPress dashbord.

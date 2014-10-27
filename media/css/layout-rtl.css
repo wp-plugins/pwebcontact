@@ -1,5 +1,5 @@
 /**
- * @version 1.0.0
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -77,16 +77,7 @@
 	float: right;
 }
 /* Labels over fields */
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-text .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-name .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-email .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-phone .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-subject .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-password .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-date .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-textarea .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-select .pweb-label,
-.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-field-multiple .pweb-label {
+.pweb-rtl.pweb-labels-over form.pwebcontact-form .pweb-label-over .pweb-label {
 	left: auto;
 	right: 0;
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.1
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -48,12 +48,8 @@ function_exists('add_action') or die;
     foreach ($this->data->forms as $form) : ?>
     <div class="theme pweb-panel-box">
         <div class="theme-screenshot pweb-layout-<?php echo $form->layout; ?>" onclick="document.location.href='<?php echo admin_url( 'admin.php?page=pwebcontact&task=edit&id='.(int)$form->id ); ?>'">
-			<?php if (!defined('PWEBCONTACT_PRO') AND $form->layout !== 'slidebox') : ?>
-                <span class="pweb-pro pweb-has-tooltip" title="<?php esc_attr_e('You need to get PRO version to use this layout', 'pwebcontact'); ?>">
-                    <?php _e('PRO', 'pwebcontact'); ?>
-                </span>
-            <?php endif; ?>
-		</div>
+		
+        </div>
         <h3 class="theme-name">
             <span class="pweb-save-date">
                 <?php _e( 'Saved on', 'pwebcontact' ); ?><br><?php echo get_date_from_gmt($form->modify_date); ?>
@@ -67,9 +63,6 @@ function_exists('add_action') or die;
                 <input type="text" class="pweb-shortcode pweb-has-tooltip" readonly="readonly"
                        title="<?php esc_attr_e( 'Copy shortcode and paste into blog post or page.', 'pwebcontact' ); ?>" 
                        value="[pwebcontact id=<?php echo (int)$form->id; ?>]">
-                <!--<button type="button" class="button">
-                    <i class="icomoon-copy"></i>
-                </button>-->
                 <?php _e( 'shortcode', 'pwebcontact' ); ?>
             <?php elseif ($form->position == 'widget') : ?>
                 <?php _e( 'Display in', 'pwebcontact' ); ?>
@@ -117,19 +110,6 @@ endif; ?>
             <?php _e( 'Get PRO version & support', 'pwebcontact' ); ?>
         </h3>
     </div>
-    
-    <?php /*<div class="theme active pweb-panel-box pweb-panel-support">
-        <div class="theme-screenshot" onclick="document.location.href='<?php echo $this->buy_url; ?>'">
-			<i class="glyphicon glyphicon-question-sign"></i>
-		</div>
-        <h3 class="theme-name">
-            <a class="button button-primary right" href="<?php echo $this->buy_url; ?>" target="_blank">
-                <i class="glyphicon glyphicon-shopping-cart"></i> <?php _e( 'Buy', 'pwebcontact' ); ?>
-            </a>
-            <?php _e( 'Get support only', 'pwebcontact' ); ?>
-        </h3>
-    </div>*/ ?>
-        
 </div>
 </div>
 

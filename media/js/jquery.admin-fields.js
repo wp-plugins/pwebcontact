@@ -1,5 +1,5 @@
 /**
- * @version 1.0.0
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -10,6 +10,10 @@ var pwebcontact_l10n = pwebcontact_l10n || {},
     pwebcontact_admin = pwebcontact_admin || {};
 
 if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
+    
+    if (typeof pwebcontact_admin.is_pro === "undefined") {
+        pwebcontact_admin.is_pro = false;
+    }
     
     pwebcontact_admin.item_index = 0;
     pwebcontact_admin.counter = 0;
@@ -209,7 +213,7 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
                     // insert field by droping field type on column
                     $col.droppable({
                         accept: function(item) {
-                            return (item.hasClass("pweb-custom-fields-type"));
+                            return (item.hasClass("pweb-custom-fields-type") && !item.hasClass("pweb-custom-fields-disabled"));
                         },
                         activeClass: "pweb-droppable",
                         hoverClass: "pweb-droppable-hover",
@@ -244,7 +248,7 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
                                 }
                                 // show field type if only one instance is allowed
                                 if ($field.hasClass("pweb-custom-fields-single")) {
-                                    $("#pweb_field_type_" + $field.data("type")).show("slow");
+                                    $("#pweb_field_type_" + $field.data("type")).removeClass("pweb-custom-fields-disabled");
                                 }
                                 // enable droping of field types on add column button
                                 $col.removeClass("pweb-has-field pweb-custom-field-active pweb-custom-field-type-"+$field.data("type"))
@@ -296,7 +300,7 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
             }
         }).droppable({
             accept: function(item) {
-                return (item.hasClass("pweb-has-field") || item.hasClass("pweb-custom-fields-type"));
+                return (item.hasClass("pweb-has-field") || (item.hasClass("pweb-custom-fields-type") && !item.hasClass("pweb-custom-fields-disabled")));
             },
             tolerance: "pointer",
             activeClass: "pweb-droppable",
@@ -333,7 +337,7 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
         addRow( 0, false );
     }).droppable({
         accept: function(item) {
-            return (item.hasClass("pweb-custom-fields-type"));
+            return (item.hasClass("pweb-custom-fields-type") && !item.hasClass("pweb-custom-fields-disabled"));
         },
         activeClass: "pweb-droppable",
         hoverClass: "pweb-droppable-hover",
@@ -351,7 +355,7 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
         addRow( $(this).prev().children().length-1, true );
     }).droppable({
         accept: function(item) {
-            return (item.hasClass("pweb-custom-fields-type"));
+            return (item.hasClass("pweb-custom-fields-type") && !item.hasClass("pweb-custom-fields-disabled"));
         },
         activeClass: "pweb-droppable",
         hoverClass: "pweb-droppable-hover",
@@ -466,7 +470,7 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
         
         // Hide field on fields types list if only one instance is allowed
         if (source.hasClass("pweb-custom-fields-single")) {
-            source.hide();
+            source.addClass("pweb-custom-fields-disabled");
         }
         
         if (!pwebcontact_admin.is_pro && $field.hasClass("pweb-pro")) {

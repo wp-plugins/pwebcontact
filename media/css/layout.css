@@ -1,5 +1,5 @@
 /**
- * @version 1.0.9
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -70,16 +70,23 @@ form.pwebcontact-form .btn {
 	padding: 5px 10px;
 	text-decoration: none;
 	text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+    background-color: #fff;
 	cursor: pointer;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,0.2) inset;
+	-moz-box-shadow: 0 0 1px rgba(255,255,255,0.2) inset;
+	box-shadow: 0 0 1px rgba(255,255,255,0.2) inset;
 }
 .pwebcontact_toggler:hover {
 	color: inherit;
 	text-decoration: none;
-	-webkit-transition: background-position .1s linear;
-	-moz-transition: background-position .1s linear;
-	-o-transition: background-position .1s linear;
-	transition: background-position .1s linear;
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
 }
+
 .pweb-vertical.pweb-left .pwebcontact_toggler,
 .pweb-vertical.pweb-right .pwebcontact_toggler {
 	width: 30px;
@@ -91,6 +98,14 @@ form.pwebcontact-form .btn {
 }
 .pweb-accordion .pwebcontact_toggler {
 	width: auto;
+}
+
+ /* Toggler Gradient active
+  * --------------------------------------------------------------------- 
+  */
+.pwebcontact_toggler.pweb-gradient:hover,
+.pwebcontact_toggler.pweb-gradient.pweb-opened {
+	background-image: none;
 }
 
  /* Toggler Rounded
@@ -153,6 +168,7 @@ form.pwebcontact-form .btn {
   */
 .pwebcontact_toggler.pweb-icon {
 	padding: 5px 40px 5px 10px;
+    font-size: 16px;
 }
 .pweb-horizontal.pweb-right .pwebcontact_toggler.pweb-icon {
 	padding: 5px 10px 5px 40px;
@@ -261,15 +277,19 @@ form.pwebcontact-form .btn {
   * --------------------------------------------------------------------- 
   */
 .pwebcontact-container {
-	background-repeat: no-repeat !important;
+	background-repeat: no-repeat;
 	text-align: left;
 }
 .pweb-slidebox .pwebcontact-container,
-.pweb-modal .pwebcontact-container {
-	background-color: #FFF;
+.pweb-modal .pwebcontact-container,
+.pweb-accordion-boxed .pwebcontact-container {
+    border: 1px solid #ccc;
+	border-color: rgba(0,0,0, 0.2);
+    background-color: #fff;
+	background-color: rgba(255,255,255, 0.9);
 }
 .pweb-static .pwebcontact-container {
-	padding: 5px;
+	padding: 20px 10px;
 }
 
  /* Container - Slide in box
@@ -353,8 +373,9 @@ form.pwebcontact-form .btn {
 .pweb-accordion.pweb-accordion-boxed .pwebcontact-container {
 	margin-top: 15px;
 	padding: 30px 10px 10px;
-	border: 1px solid #7F7F7F;
-	border-color: rgba(0,0,0, 0.5);
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0, 0.3);
+ 	-moz-box-shadow: inset 0 0 4px rgba(0,0,0, 0.3);
+	box-shadow: inset 0 0 4px rgba(0,0,0, 0.3);
 }
 .pweb-accordion.pweb-accordion-boxed .pweb-arrow {
 	position: absolute;
@@ -459,39 +480,39 @@ form.pwebcontact-form .btn {
 }
 
 .pwebcontact_toggler.pweb-shadow {
-	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 .pwebcontact.pweb-offset-left.pweb-top .pwebcontact_toggler.pweb-shadow {
-	-moz-box-shadow: -1px 3px 3px rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: -1px 3px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: -1px 3px 3px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: -1px 3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-webkit-box-shadow: -1px 3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: -1px 3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 .pwebcontact.pweb-offset-left.pweb-bottom .pwebcontact_toggler.pweb-shadow {
-	-moz-box-shadow: -1px -3px 3px rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: -1px -3px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: -1px -3px 3px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: -1px -3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-webkit-box-shadow: -1px -3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: -1px -3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 .pwebcontact.pweb-offset-right.pweb-top .pwebcontact_toggler.pweb-shadow {
-	-moz-box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-webkit-box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 .pwebcontact.pweb-offset-right.pweb-bottom .pwebcontact_toggler.pweb-shadow {
-	-moz-box-shadow: 1px -3px 3px rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: 1px -3px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: 1px -3px 3px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 1px -3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-webkit-box-shadow: 1px -3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: 1px -3px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 .pwebcontact.pweb-vertical.pweb-left .pwebcontact_toggler.pweb-shadow {
-	-moz-box-shadow: 3px -1px 3px rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: 3px -1px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: 3px -1px 3px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 3px -1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-webkit-box-shadow: 3px -1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: 3px -1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 .pwebcontact.pweb-vertical.pweb-right .pwebcontact_toggler.pweb-shadow {
-	-moz-box-shadow: -3px -1px 3px rgba(0, 0, 0, 0.25);
-	-webkit-box-shadow: -3px -1px 3px rgba(0, 0, 0, 0.25);
-	box-shadow: -3px -1px 3px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: -3px -1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-webkit-box-shadow: -3px -1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: -3px -1px 3px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 
 .pwebcontact.pweb-accordion.pweb-shadow .pwebcontact-container {
@@ -615,7 +636,7 @@ form.pwebcontact-form {
     margin: 0;
 }
 form.pwebcontact-form .pweb-field-container {
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 }
 form.pwebcontact-form .pweb-label,
 form.pwebcontact-form .pweb-field {
@@ -651,10 +672,10 @@ form.pwebcontact-form .pweb-msg .pweb-progress,
 	background-image: url(data:image/gif;base64,R0lGODlhEAAQALMMAKqooJGOhp2bk7e1rZ2bkre1rJCPhqqon8PBudDOxXd1bISCef///wAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAAMACwAAAAAEAAQAAAET5DJyYyhmAZ7sxQEs1nMsmACGJKmSaVEOLXnK1PuBADepCiMg/DQ+/2GRI8RKOxJfpTCIJNIYArS6aRajWYZCASDa41Ow+Fx2YMWOyfpTAQAIfkEBQAADAAsAAAAABAAEAAABE6QyckEoZgKe7MEQMUxhoEd6FFdQWlOqTq15SlT9VQM3rQsjMKO5/n9hANixgjc9SQ/CgKRUSgw0ynFapVmGYkEg3v1gsPibg8tfk7CnggAIfkEBQAADAAsAAAAABAAEAAABE2QycnOoZjaA/IsRWV1goCBoMiUJTW8A0XMBPZmM4Ug3hQEjN2uZygahDyP0RBMEpmTRCKzWGCkUkq1SsFOFQrG1tr9gsPc3jnco4A9EQAh+QQFAAAMACwAAAAAEAAQAAAETpDJyUqhmFqbJ0LMIA7McWDfF5LmAVApOLUvLFMmlSTdJAiM3a73+wl5HYKSEET2lBSFIhMIYKRSimFriGIZiwWD2/WCw+Jt7xxeU9qZCAAh+QQFAAAMACwAAAAAEAAQAAAETZDJyRCimFqbZ0rVxgwF9n3hSJbeSQ2rCWIkpSjddBzMfee7nQ/XCfJ+OQYAQFksMgQBxumkEKLSCfVpMDCugqyW2w18xZmuwZycdDsRACH5BAUAAAwALAAAAAAQABAAAARNkMnJUqKYWpunUtXGIAj2feFIlt5JrWybkdSydNNQMLaND7pC79YBFnY+HENHMRgyhwPGaQhQotGm00oQMLBSLYPQ9QIASrLAq5x0OxEAIfkEBQAADAAsAAAAABAAEAAABE2QycmUopham+da1cYkCfZ94UiW3kmtbJuRlGF0E4Iwto3rut6tA9wFAjiJjkIgZAYDTLNJgUIpgqyAcTgwCuACJssAdL3gpLmbpLAzEQA7);
 }
 form.pwebcontact-form .pweb-msg .pweb-success {
-	color: #009E0A;
+	color: #009e0a;
 }
 form.pwebcontact-form .pweb-msg .pweb-error {
-	color: #A80000;
+	color: #aa0000;
 }
 form.pwebcontact-form .pweb-msg-before {
 	margin-bottom: 5px;
@@ -682,15 +703,21 @@ form.pwebcontact-form textarea {
 	margin: 0;
 	width: 100%;
 	outline: none;
-	-webkit-box-sizing: border-box !important;
+    font-weight: normal;
+    border-style: solid;
+    border-width: 1px;
+    
+    -webkit-box-sizing: border-box !important;
 	-moz-box-sizing: border-box !important;
 	box-sizing: border-box !important;
+    
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	border-radius: 0;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+    
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
 }
 form.pwebcontact-form input.pweb-input, 
 form.pwebcontact-form select {
@@ -708,13 +735,18 @@ form.pwebcontact-form textarea {
 	height: auto !important;
 	min-height: 70px;
 }
+form.pwebcontact-form .pweb-field-textarea .pweb-chars-counter {
+    margin-top: 3px;
+}
+
 form.pwebcontact-form input.pweb-input:focus, 
 form.pwebcontact-form select:focus, 
 form.pwebcontact-form textarea:focus {
-	-webkit-transition: border .2s linear, box-shadow .2s linear;
-	-moz-transition: border .2s linear, box-shadow .2s linear;
-	-o-transition: border .2s linear, box-shadow .2s linear;
-	transition: border .2s linear, box-shadow .2s linear;
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all 1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
 }
 
 /* Checkboxes and radio group and single checkbox
@@ -761,23 +793,24 @@ form.pwebcontact-form .btn {
 	height: auto;
 	padding: 4px 12px;
 	cursor: pointer;
+    text-transform: none;
+    font-weight: normal;
+    border-style: solid;
+    border-width: 1px;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	border-radius: 0;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.2) inset;
+	-webkit-box-shadow: 0 1px 2px rgba(255,255,255,0.2) inset;
+	-moz-box-shadow: 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 form.pwebcontact-form button:hover,
 form.pwebcontact-form .btn:hover {
-	-webkit-transition: background-position .1s linear;
-	-moz-transition: background-position .1s linear;
-	-o-transition: background-position .1s linear;
-	transition: background-position .1s linear;
-	-webkit-transition: background-color .1s linear;
-	-moz-transition: background-color .1s linear;
-	-o-transition: background-color .1s linear;
-	transition: background-color .1s linear;
+	background-position: 0 -30px;
+    -webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
 }
 
 /* Rounded fields and buttons
@@ -785,7 +818,8 @@ form.pwebcontact-form .btn:hover {
  */
 .pweb-radius form.pwebcontact-form input.pweb-input, 
 .pweb-radius form.pwebcontact-form select, 
-.pweb-radius form.pwebcontact-form textarea {
+.pweb-radius form.pwebcontact-form textarea,
+.pweb-radius form.pwebcontact-form .pweb-field-shadow{
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -799,17 +833,16 @@ form.pwebcontact-form .btn:hover {
 /* Shadow fields and buttons
  * ---------------------------------------------------------------------
  */
-.pweb-shadow form.pwebcontact-form input.pweb-input, 
-.pweb-shadow form.pwebcontact-form select, 
-.pweb-shadow form.pwebcontact-form textarea {
-	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2) inset;
-	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2) inset;
-	box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2) inset;
-}
-.pweb-shadow form.pwebcontact-form button {
+.pweb-shadow form.pwebcontact-form .pweb-field-shadow {
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4);
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.4);
 	box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+.pweb-shadow form.pwebcontact-form button,
+.pweb-shadow form.pwebcontact-form .btn {
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(255,255,255,0.2) inset;
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(255,255,255,0.2) inset;
+	box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(255,255,255,0.2) inset;
 }
 /* Fields invalid
  * ---------------------------------------------------------------------
@@ -817,11 +850,13 @@ form.pwebcontact-form .btn:hover {
 form.pwebcontact-form input.invalid.pweb-input, 
 form.pwebcontact-form select.invalid, 
 form.pwebcontact-form textarea.invalid {
-	border-color: #f00 !important;
+    color: #a00;
+	border-color: #a00;
+    outline-color: #a00;
 	font-weight: normal;
-	-webkit-box-shadow: 0 0 5px #f00, 0 1px 2px rgba(0,0,0,0.2) inset !important;
-	-moz-box-shadow: 0 0 5px #f00, 0 1px 2px rgba(0,0,0,0.2) inset !important;
-	box-shadow: 0 0 5px #f00, 0 1px 2px rgba(0,0,0,0.2) inset !important;
+    -webkit-box-shadow: 0 0 3px #f00 inset;
+	-moz-box-shadow: 0 0 3px #f00 inset;
+	box-shadow: 0 0 3px #f00 inset;
 }
 /* Fields active
  * ---------------------------------------------------------------------
@@ -830,9 +865,6 @@ form.pwebcontact-form input.pweb-input:focus,
 form.pwebcontact-form select:focus, 
 form.pwebcontact-form textarea:focus {
 	outline: none;
-	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2) inset !important;
-	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2) inset !important;
-	box-shadow: 0 0 5px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.2) inset !important;
 }
 
 /* Text separator
@@ -853,9 +885,9 @@ form.pwebcontact-form textarea:focus {
 /* Labels invalid 
  * ---------------------------------------------------------------------
  */
-form.pwebcontact-form .invalid,
-form.pwebcontact-form .invalid a {
-	color: #f00 !important;
+form.pwebcontact-form label.invalid,
+form.pwebcontact-form label.invalid a {
+	color: #a00;
 	font-weight: normal;
 }
 
@@ -884,7 +916,7 @@ form.pwebcontact-form .invalid a {
  * ---------------------------------------------------------------------
  */
 .pweb-labels-above form.pwebcontact-form .pweb-label {
-	margin-bottom: 3px;
+	margin-bottom: 4px;
 }
 
 /* Labels over fields
@@ -896,16 +928,7 @@ form.pwebcontact-form .invalid a {
 .pweb-labels-over form.pwebcontact-form .pweb-label {
 	margin-bottom: 3px;
 }
-.pweb-labels-over form.pwebcontact-form .pweb-field-text .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-name .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-email .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-phone .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-subject .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-password .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-date .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-textarea .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-select .pweb-label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-multiple .pweb-label {
+.pweb-labels-over form.pwebcontact-form .pweb-label-over .pweb-label {
 	position: absolute;
 	z-index: 5;
 	top: 0;
@@ -913,34 +936,26 @@ form.pwebcontact-form .invalid a {
 	width: auto !important;
 	margin-bottom: 0;
 }
-.pweb-labels-over form.pwebcontact-form .pweb-field-multiple .pweb-label {
+.pweb-labels-over form.pwebcontact-form .pweb-label-over.pweb-field-multiple .pweb-label {
 	width: 100% !important;
 	height: 100% !important;
 }
-.pweb-labels-over form.pwebcontact-form .pweb-field-text label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-name label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-email label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-phone label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-subject label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-password label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-date label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-textarea label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-select label,
-.pweb-labels-over form.pwebcontact-form .pweb-field-multiple label {
+.pweb-labels-over form.pwebcontact-form .pweb-label-over label {
 	padding: 3px 6px 0;
 	cursor: text;
 	color: #aaa;
+    color: rgba(0,0,0, 0.5);
 	text-shadow: none;
 	white-space: nowrap;
 	-webkit-box-sizing: border-box !important;
 	-moz-box-sizing: border-box !important;
 	box-sizing: border-box !important;
 }
-.pweb-labels-over form.pwebcontact-form .pweb-field-multiple label {
+.pweb-labels-over form.pwebcontact-form .pweb-label-over.pweb-field-multiple label {
 	width: 100% !important;
 	height: 100% !important;
 }
-.pweb-labels-over form.pwebcontact-form .pweb-field-multiple select.pweb-blank option {
+.pweb-labels-over form.pwebcontact-form .pweb-label-over.pweb-field-multiple select.pweb-blank option {
 	color: #fff !important;
 	color: rgba(255,255,255,0) !important;
 }
@@ -955,9 +970,6 @@ form.pwebcontact-form .pweb-field-captcha .pweb-field {
 /* Calendar
  * ---------------------------------------------------------------------
  */
-body div.calendar { 
-	z-index: 10000;
-}
 .pweb-field-date .pweb-field {
 	position: relative;
 	z-index: 0;
@@ -974,6 +986,7 @@ body div.calendar {
 	padding: 4px 0;
 	cursor: pointer;
 	text-align: center;
+    color: #000;
 }
 
 /* Tooltip

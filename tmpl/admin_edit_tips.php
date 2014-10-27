@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.5
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -10,20 +10,27 @@
 // No direct access
 function_exists('add_action') or die;
 ?>
-<p><?php _e( 'All of those tips depend on Contact From ID and can be applied to this Contact From instance only.', 'pwebcontact' ); ?></p>
+<div class="pweb-alert pweb-alert-warning">
+    <?php _e( 'All of those tips depend on Contact From ID and can be applied to this Contact From instance only.', 'pwebcontact' ); ?>
+</div>
 
 <div class="pweb-field pweb-desc">
-    <h3><?php _e( 'Open contact form with menu item', 'pwebcontact' ); if (!defined('PWEBCONTACT_PRO')) echo $this->_display_badge_pro(); ?></h3>
+    <h3>
+        <?php _e( 'Open contact form with menu item', 'pwebcontact' ); ?>
+        <?php echo $this->_display_badge_pro(); ?>
+    </h3>
     <p>
         <?php _e( 'To open contact form with menu item, create menu item type of Links and as URL set', 'pwebcontact' ); ?><br>
         <code>#pwebcontact<?php echo $this->id; ?>_toggler</code> <a href="<?php echo admin_url('nav-menus.php'); ?>" target="_blank"><?php _e( 'Go to Menus', 'pwebcontact' ); ?></a><br>
         <span class="pweb-text-danger"><?php _e( 'Remember that menu item would open contact form only if it has been loaded.', 'pwebcontact' ); ?></span><br>
-        <?php _e( 'If you do not want to display Toggler Tab or Button then select in Location & Effects - Form before opening - hidden', 'pwebcontact' ); ?>
+        <?php esc_html_e( 'If you do not want to display Toggler Tab or Button then select `Location & Effects` > `Form before opening` > `Hidden before opening`.', 'pwebcontact' ); ?>
     </p>
 </div>
 
+<hr>
+
 <div class="pweb-field pweb-desc">
-    <h3><?php _e( 'Open contact form with custom HTML', 'pwebcontact' ); if (!defined('PWEBCONTACT_PRO')) echo $this->_display_badge_free(); ?></h3>
+    <h3><?php _e( 'Open contact form with custom HTML', 'pwebcontact' ); ?></h3>
     <p>
         <?php _e( 'Open by link', 'pwebcontact' ); ?><br>
         <code>&lt;a href="#" class="pwebcontact<?php echo $this->id; ?>_toggler"&gt;Click here&lt;/a&gt;</code>
@@ -38,8 +45,10 @@ function_exists('add_action') or die;
     </p>
 </div>
 
+<hr>
+
 <div class="pweb-field pweb-desc">
-    <h3><?php _e( 'Preload fields values', 'pwebcontact' ); if (!defined('PWEBCONTACT_PRO')) echo $this->_display_badge_pro(); ?></h3>
+    <h3><?php _e( 'Preload fields values', 'pwebcontact' ); ?></h3>
     <p>
         <?php printf(__( 'Separate each field with %s. Separate field alias and values with %s. Alias has to be lower-case. Separate multiple values with %s.', 'pwebcontact' ), '<code>/</code>', '<code>=</code>', '<code>;</code>'); ?><br>
     </p>
@@ -68,8 +77,10 @@ function_exists('add_action') or die;
     </p>
 </div>
 
+<hr>
+
 <div class="pweb-field pweb-desc">
-    <h3><?php _e( 'JavaScript methods', 'pwebcontact' ); if (!defined('PWEBCONTACT_PRO')) echo $this->_display_badge_free(); ?></h3>
+    <h3><?php _e( 'JavaScript methods', 'pwebcontact' ); ?></h3>
     <p>
         <?php _e( 'Toggle form', 'pwebcontact' ); ?><br>
         <code>pwebContact<?php echo $this->id; ?>.toggleForm();</code>
@@ -83,7 +94,9 @@ function_exists('add_action') or die;
 		<code>pwebContact<?php echo $this->id; ?>.toggleForm(0);</code>
     </p>
     <p>
-        <?php _e( 'Open form with selected 3rd email from List of recipients field', 'pwebcontact' ); if (!defined('PWEBCONTACT_PRO')) echo $this->_display_badge_pro(); ?><br>
+        <?php _e( 'Open form with selected 3rd email from List of recipients field', 'pwebcontact' ); ?>
+        <?php echo $this->_display_badge_pro(); ?>
+        <br>
 		<code>pwebContact<?php echo $this->id; ?>.toggleForm(1, 3);</code>
     </p>
 </div>

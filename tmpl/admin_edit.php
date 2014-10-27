@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.5
+ * @version 2.0.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -31,12 +31,10 @@ function_exists('add_action') or die;
 
             <span id="pweb-save-status"><?php _e( 'Saved on', 'pwebcontact' ); ?> <?php echo get_date_from_gmt($this->data->modify_date); ?></span>
             
-            <?php if (!defined('PWEBCONTACT_PRO')) : ?>
             <button class="button button-primary right pweb-buy" id="pweb-buy-button">
                 <i class="glyphicon glyphicon-shopping-cart"></i> <?php _e( 'Buy PRO', 'pwebcontact' ); ?>
                 <span>&amp; <?php _e( 'Get Support', 'pwebcontact' ); ?></span>
             </button>
-            <?php endif; ?>
             <a class="button button-primary right" id="pweb-docs-button" href="<?php echo $this->documentation_url; ?>" target="_blank">
                 <i class="glyphicon glyphicon-question-sign"></i> <span><?php _e( 'Documentation' ); ?></span>
             </a>
@@ -57,10 +55,9 @@ function_exists('add_action') or die;
             </a>
             <a href="#pweb-tab-email" id="pweb-tab-email" class="nav-tab">
                 <i class="glyphicon glyphicon-envelope"></i>
-                <?php esc_html_e( 'Email settings', 'pwebcontact' ); ?>
+                <?php esc_html_e( 'Email', 'pwebcontact' ); ?>
             </a>
             <a href="#pweb-tab-check" id="pweb-tab-check" class="nav-tab">
-                <i class="glyphicon glyphicon-ok"></i>
                 <?php esc_html_e( 'Configuration check', 'pwebcontact' ); ?>
             </a>
             <a href="#pweb-tab-tips" id="pweb-tab-tips" class="nav-tab">

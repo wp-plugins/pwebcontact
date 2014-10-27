@@ -1,5 +1,0 @@
-{
-	"style_toggler":"pink",
-	"style_form":"pink",
-	"style_bg":"white"
-}
