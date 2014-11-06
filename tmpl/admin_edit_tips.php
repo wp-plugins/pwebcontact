@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.0
+ * @version 2.0.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -11,7 +11,7 @@
 function_exists('add_action') or die;
 ?>
 <div class="pweb-alert pweb-alert-warning">
-    <?php _e( 'All of those tips depend on Contact From ID and can be applied to this Contact From instance only.', 'pwebcontact' ); ?>
+    <?php _e( 'All of these tips depend on Contact Form ID and can be applied to this Contact Form instance only.', 'pwebcontact' ); ?>
 </div>
 
 <div class="pweb-field pweb-desc">

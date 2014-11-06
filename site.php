@@ -1,11 +1,14 @@
 <?php
 /**
- * @version 2.0.0
+ * @version 2.0.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @author Piotr Moćko
  */
+
+// TODO rotate toggler with CSS
+// TODO store submitted emails in database
 
 // No direct access
 function_exists('add_action') or die;
@@ -462,7 +465,7 @@ class PWebContact
 					.'{z-index:'.$value.'}';
 			// Lightbox window
 			if (($layout == 'modal' OR $params->get('load_modal_backdrop')) AND $value > 1030) {
-				$css .= '.pweb-modal-open .modal-backdrop{z-index:'.($value+10).'}';
+				$css .= 'body.pweb-modal-open > .modal-backdrop{z-index:'.($value+10).'}';
 				$css .= '.pwebcontact-modal.modal{z-index:'.($value+20).'}';
                 $css .= '.pweb-modal.modal{z-index:'.($value+21).'}';
 				$css .= '.ui-effects-transfer.pweb-genie{z-index:'.($value+19).'}';
@@ -738,8 +741,7 @@ class PWebContact
 		if (($value = (int)$params->get('bootstrap_version', 2)) != 2)
 			$options[] = 'bootstrap:'.$value;
 		
-        //$options[] = 'basePath:"'.home_url('', 'relative').'"';
-		$options[] = 'ajaxUrl:"'.admin_url( 'admin-ajax.php?action=pwebcontact_' ).'"';
+		$options[] = 'ajaxUrl:"'.admin_url( 'admin-ajax.php?action=pwebcontact_', is_ssl() ? 'https' : 'http' ).'"';
 		
 		$options[] = 'layout:"'.$layout.'"';
 		$options[] = 'position:"'.$position.'"';

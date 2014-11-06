@@ -1,5 +1,5 @@
 /**
- * @version 1.0.0
+ * @version 2.0.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -186,8 +186,14 @@ form.pwebcontact-form input[type="submit"].btn::-moz-focus-inner {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
   background-color: #000000;
+}
+body > .modal-backdrop {
+  z-index: 1040;
+}
+.pweb-modal.modal > .modal-backdrop,
+.pwebcontact-modal.modal > .modal-backdrop {
+  z-index: -1;
 }
 .modal-backdrop.fade {
   opacity: 0;
