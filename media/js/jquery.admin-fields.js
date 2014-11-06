@@ -6,6 +6,8 @@
  * @author Piotr Moćko
  */
 
+// TODO check if aliases of fields are unique
+
 var pwebcontact_l10n = pwebcontact_l10n || {},
     pwebcontact_admin = pwebcontact_admin || {};
 

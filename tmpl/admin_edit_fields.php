@@ -7,6 +7,16 @@
  * @author Piotr Moćko
  */
 
+// TODO map field
+// TODO captcha field
+// TODO mail to list - allow multiple emails for one option
+// TODO subject - input or select
+// TODO URL field
+// TODO country select field
+// TODO custom text - WYSIWYG
+// 
+// TODO remove fields button
+
 // No direct access
 function_exists('add_action') or die;
 

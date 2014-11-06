@@ -7,6 +7,8 @@
  * @author Piotr Moćko
  */
 
+// TODO display all fields email templates
+
 // No direct access
 function_exists('add_action') or die;
 

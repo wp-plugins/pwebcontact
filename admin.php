@@ -7,6 +7,9 @@
  * @author Piotr Moćko
  */
 
+// TODO editor button for inserting shortcode
+// TODO manage submitted emails
+
 // No direct access
 function_exists('add_action') or die;
 
