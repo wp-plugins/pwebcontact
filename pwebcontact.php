@@ -3,7 +3,7 @@
  * Plugin Name: Perfect Easy & Powerful Contact Form
  * Plugin URI: http://www.perfect-web.co/wordpress/contact-form
  * Description: Intuitive for dummies. Handy for pros!
- * Version: 2.0.1
+ * Version: 2.0.2
  * Text Domain: pwebcontact
  * Author: Piotr Moćko
  * Author URI: http://www.perfect-web.co
