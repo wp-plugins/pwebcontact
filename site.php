@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.1
+ * @version 2.0.3
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -1109,7 +1109,7 @@ class PWebContact
 		$form_id 	= (int)$params->get('id');
 		
 		// mail from
-		$global_name  = $params->get( 'email_from_name', $settings->get('email_from_name', get_bloginfo('name')) );
+		$global_name  = trim( $params->get( 'email_from_name', $settings->get('email_from_name', get_bloginfo('name')) ) );
 		$global_email = $params->get( 'email_from', $settings->get('email_from', get_bloginfo('admin_email')) );
 		if (!$global_email) {
 			if (PWEBCONTACT_DEBUG) self::$logs[] = 'Invalid Global Configuration';
@@ -1285,19 +1285,22 @@ class PWebContact
 			$headers = array();
             
             // set sender
-            $headers[] = "From: $global_name <$global_email>";
+            $headers[] = 'From: ' . ( $global_name ? $global_name.' <'.$global_email.'>' : $global_email );
 			if (PWEBCONTACT_DEBUG) 
             {
                 self::$logs[] = 'User email: '.$user_email;
                 self::$logs[] = 'User email subject: '.$data['subject'];
-                self::$logs[] = 'User email sender: '.$global_name.' <'.$global_email.'>';
+                self::$logs[] = 'User email sender: '. ( $global_name ? $global_name.' <'.$global_email.'>' : $global_email );
             }
             
 			// set reply to
-			if ($params->get('email_replyto')) 
+			if ($replyto_email = $params->get('email_replyto')) 
 			{
-                $headers[] = 'Reply-To: '.$params->get('email_replyto_name', $global_name).' <'.$params->get('email_replyto').'>';
-				if (PWEBCONTACT_DEBUG) self::$logs[] = 'User email reply-to: '.$params->get('email_replyto_name', $global_name).' <'.$params->get('email_replyto').'>';
+                $replyto_name = trim( $params->get('email_replyto_name', $global_name) );
+                $headers[] = 'Reply-To: '. ( $replyto_name ? $replyto_name.' <'.$replyto_email.'>' : $replyto_email );
+                if (PWEBCONTACT_DEBUG) {
+                    self::$logs[] = 'User email reply-to: '. ( $replyto_name ? $replyto_name.' <'.$replyto_email.'>' : $replyto_email );
+                }
 			}
             
 			// Add carbon copy recipients
@@ -1361,16 +1364,22 @@ class PWebContact
 
 		// set sender
 		if ($user_email AND !$settings->get('server_sender', 0)) {
-            $headers[] = "From: $user_name <$user_email>";
-			if (PWEBCONTACT_DEBUG) self::$logs[] = 'Admin email Sender: '.$user_email;
+            $headers[] = 'From: '. ( $user_name ? $user_name.' <'.$user_email.'>' : $user_email );
+			if (PWEBCONTACT_DEBUG) {
+                self::$logs[] = 'Admin email Sender: '. ( $user_name ? $user_name.' <'.$user_email.'>' : $user_email );
+            }
 		} else {
-            $headers[] = "From: $global_name <$global_email>";
-			if (PWEBCONTACT_DEBUG) self::$logs[] = 'Admin email Sender: '.$global_name.' <'.$global_email.'>';
+            $headers[] = 'From: ' . ( $global_name ? $global_name.' <'.$global_email.'>' : $global_email );
+			if (PWEBCONTACT_DEBUG) {
+                self::$logs[] = 'Admin email Sender: '. ( $global_name ? $global_name.' <'.$global_email.'>' : $global_email );
+            }
 			
 			// set reply to
 			if ($user_email) {
-				$headers[] = "Reply-To: $user_name <$user_email>";
-				if (PWEBCONTACT_DEBUG) self::$logs[] = 'Admin email reply-to: '.$user_name.' <'.$user_email.'>';
+                $headers[] = 'Reply-To: '. ( $user_name ? $user_name.' <'.$user_email.'>' : $user_email );
+                if (PWEBCONTACT_DEBUG) {
+                    self::$logs[] = 'Admin email reply-to: '. ( $user_name ? $user_name.' <'.$user_email.'>' : $user_email );
+                }
 			}
 		}
 
