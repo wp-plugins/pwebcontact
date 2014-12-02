@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.0
+ * @version 2.0.4
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -528,6 +528,48 @@ function_exists('add_action') or die;
                             'value' => 1,
                             'name' => 'Yes',
                             'is_parent' => true
+                        )
+                    )
+                )); ?>
+                
+                <?php echo $this->_get_field(array(
+                    'type' => 'radio',
+                    'name' => 'tooltips_focus',
+                    'label' => 'Show tooltips on field focus',
+                    'default' => 1,
+                    'class' => 'pweb-radio-group',
+                    'options' => array(
+                        array(
+                            'value' => 0,
+                            'name' => 'No',
+                            'is_parent' => true
+                        ),
+                        array(
+                            'value' => 1,
+                            'name' => 'Yes',
+                            'is_parent' => true
+                        )
+                    )
+                )); ?>
+                
+                <?php echo $this->_get_field(array(
+                    'type' => 'radio',
+                    'name' => 'user_data',
+                    'label' => 'Auto fill in logged User data',
+                    'default' => 1,
+                    'class' => 'pweb-radio-group',
+                    'options' => array(
+                        array(
+                            'value' => 0,
+                            'name' => 'No'
+                        ),
+                        array(
+                            'value' => 1,
+                            'name' => 'Yes'
+                        ),
+                        array(
+                            'value' => 2,
+                            'name' => 'Yes and hide fields with User data'
                         )
                     )
                 )); ?>

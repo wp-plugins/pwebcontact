@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.3
+ * @version 2.0.4
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -47,7 +47,7 @@ class PWebContact
             define('PWEBCONTACT_DEBUG', $debug);
             
             // Register scripts
-            wp_register_script('pwebcontact-bootstrap', $media_url.'bootstrap/js/bootstrap'.($debug ? '' : '.min').'.js', array('jquery'), '3.3.0', true);
+            wp_register_script('pwebcontact-bootstrap', $media_url.'bootstrap/js/bootstrap'.($debug ? '' : '.min').'.js', array('jquery'), '3.3.1', true);
             wp_register_script('pwebcontact-bootstrap-2', $media_url.'bootstrap-2.3.2/js/bootstrap'.($debug ? '' : '.min').'.js', array('jquery'), '2.3.2', true);
             
             
@@ -59,8 +59,8 @@ class PWebContact
             
             
             // Register styles
-            wp_register_style('pwebcontact-bootstrap', $media_url.'bootstrap/css/bootstrap'.($debug ? '' : '.min').'.css', array(), '3.3.0');
-            wp_register_style('pwebcontact-bootstrap-theme', $media_url.'bootstrap/css/bootstrap-theme'.($debug ? '' : '.min').'.css', array(), '3.3.0');
+            wp_register_style('pwebcontact-bootstrap', $media_url.'bootstrap/css/bootstrap'.($debug ? '' : '.min').'.css', array(), '3.3.1');
+            wp_register_style('pwebcontact-bootstrap-theme', $media_url.'bootstrap/css/bootstrap-theme'.($debug ? '' : '.min').'.css', array(), '3.3.1');
             wp_register_style('pwebcontact-bootstrap-2', $media_url.'bootstrap-2.3.2/css/bootstrap'.($debug ? '' : '.min').'.css', array(), '2.3.2');
             wp_register_style('pwebcontact-bootstrap-2-responsive', $media_url.'bootstrap-2.3.2/css/bootstrap-responsive'.($debug ? '' : '.min').'.css', array(), '2.3.2');
             wp_register_style('pwebcontact-bootstrap-custom', $media_url.'css/bootstrap-custom.css');
@@ -650,7 +650,35 @@ class PWebContact
                     }
                 }
             }
-            else $file = false;
+            else {
+                
+                if (!is_file($path . $file)) {
+
+                    $css = self::compileCustomCSS($form_id);
+
+                    // set write permissions to cache folder
+                    if (!is_writable($path)) {
+                        chmod($path, 0777);
+                    }
+
+                    // write cache file
+                    if (!file_put_contents($path.$file, $css)) {
+                        wp_add_inline_style('pwebcontact', $css);
+                        $file = false;
+                    }
+                    else {
+                        // delete old cached files
+                        if (is_dir($path)) {
+                            $dir = new DirectoryIterator($path);
+                            foreach ($dir as $fileinfo) {
+                                if ($fileinfo->isFile() AND $fileinfo->getFilename() !== $file AND preg_match('/^[a-f0-9]{32}\-'.$form_id.'\.css$/i', $fileinfo->getFilename()) === 1) {
+                                    unlink( $fileinfo->getPathname() );
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             
             if ($file !== false) {
                 wp_register_style('pwebcontact-'.$file, $media_url.'cache/'.$file);
