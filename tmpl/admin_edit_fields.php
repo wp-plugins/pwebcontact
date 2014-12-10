@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.4
+ * @version 2.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -1753,7 +1753,7 @@ $this->_set_pro_options('field_types', array(
                 <div class="pweb-custom-field-label">
                     <?php _e('Label', 'pwebcontact'); ?> <span><?php _e('Attachments', 'pwebcontact'); ?></span>
                 </div>
-                
+
                 <div class="pweb-custom-field-options">
                     <h3><?php _e('Upload field options', 'pwebcontact'); ?></h3>
                     <?php echo $this->_get_field(array(
@@ -1782,6 +1782,16 @@ $this->_set_pro_options('field_types', array(
                         'label' => 'Label',
                         'class' => 'pweb-custom-field-label-input',
                         'default' => 'Attachments'
+                    )); ?>
+                    
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'text',
+                        'name' => 'button',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Button label',
+                        'default' => 'Add files'
                     )); ?>
                     
                     <?php echo $this->_get_field(array(

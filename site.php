@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.4
+ * @version 2.0.5
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -584,6 +584,7 @@ class PWebContact
 		{
 			if ($params->get('load_jquery_ui_effects', 1)) {
 				wp_enqueue_script('jquery-effects-core');
+                wp_enqueue_script('jquery-effects-transfer');
 			}
 			if ($layout == 'modal') {
 				wp_enqueue_style('pwebcontact-animations');
@@ -771,6 +772,9 @@ class PWebContact
 		
 		$options[] = 'ajaxUrl:"'.admin_url( 'admin-ajax.php?action=pwebcontact_', is_ssl() ? 'https' : 'http' ).'"';
 		
+        if ($value = $params->get('theme'))
+			$options[] = 'theme:"'.$value.'"';
+        
 		$options[] = 'layout:"'.$layout.'"';
 		$options[] = 'position:"'.$position.'"';
 		$options[] = 'offsetPosition:"'.$params->get('toggler_offset_position').'"';
@@ -1350,7 +1354,7 @@ class PWebContact
             }
 
             // set email format
-            $is_html = $params->get('email_user_tmpl_format', 1) === 2;
+            $is_html = ($params->get('email_user_tmpl_format', 1) === 2);
             $headers[] = 'Content-Type: '.($is_html ? 'text/html' : 'text/plain');
 
             // load email body template
@@ -1427,7 +1431,7 @@ class PWebContact
 		
 
 		// set email format
-        $is_html = $params->get('email_admin_tmpl_format', 1) === 2;
+        $is_html = ($params->get('email_admin_tmpl_format', 1) === 2);
         $headers[] = 'Content-Type: '.($is_html ? 'text/html' : 'text/plain');
         
         // load email body template
