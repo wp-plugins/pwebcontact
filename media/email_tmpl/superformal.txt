@@ -1,6 +1,6 @@
 Dear Sir/Madam,
 
-This is a formal confirmation that your message has been consigned. We would like to express our deep contentment that you decided to contact (nazwa strony).
+This is a formal confirmation that your message has been consigned. We would like to express our deep contentment that you decided to contact {site_name}.
 
 Below one can find a copy of message submitted for future reference. 
 
