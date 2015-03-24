@@ -1,5 +1,5 @@
 /**
- * @version 2.0.0
+ * @version 2.0.8
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -576,7 +576,8 @@ body.pweb-modal-open {
 	padding: 10px;
 }
 .pweb-modal.modal .modal-body {
-	min-height: 400px
+	min-height: 400px;
+	-webkit-overflow-scrolling: touch;
 }
 .pweb-modal.modal .modal-body.pweb-progress {
 	background-position: center center;

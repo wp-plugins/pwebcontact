@@ -1,7 +1,7 @@
 /**
- * @version 2.0.0
+ * @version 2.0.8
  * @package Perfect Easy & Powerful Contact Form
- * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
+ * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @author Piotr Moćko
  */
@@ -1153,3 +1153,11 @@ body .ui-tooltip {
 .pwebposition-top-right > span + span { right: 0; top: 0; }
 .pwebposition-bottom-left > span + span { left: 0; bottom: 0; }
 .pwebposition-bottom-right > span + span { right: 0; bottom: 0; }
+
+/* Update message */
+.position-relative {
+    position: relative !important;
+}
+.display-block {
+    display: block !important;
+}
