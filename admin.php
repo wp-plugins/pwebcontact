@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.8
+ * @version 2.0.9
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -1450,114 +1450,6 @@ pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
         return $val > 10 ? intval($val) : round($val, 2);
     }
     
-    private function _check_updates()
-    {
-        require_once dirname(__FILE__). '/update-checker/plugin-update-checker.php';
-        
-        $UpdateChecker = PucFactory::buildUpdateChecker(
-            'https://www.perfect-web.co/index.php?option=com_pwebshop&view=updates&format=json',
-            dirname(__FILE__).'/pwebcontact.php'
-        );
-        $UpdateChecker->addQueryArgFilter( array($this, 'get_updates_query') );
-    }
-	
-	public function prepereUpdateMessage($pluginInfo) 
-	{
-        // create object for update info
-        $update = new stdClass();
-
-		if (isset($pluginInfo->updateImage) AND !empty($pluginInfo->updateImage))
-		{
-			$path = 'media/cache/' . basename($pluginInfo->updateImage);
-			
-			// Always override file!
-			if ($contents = file_get_contents($pluginInfo->updateImage))
-			{
-				file_put_contents(plugin_dir_path(__FILE__) . $path, $contents);
-			}
-			
-			if (isset($pluginInfo->updateStyle))
-			{
-				$pluginInfo->updateStyle = str_replace('__IMAGE__', plugin_dir_url(__FILE__) . $path, $pluginInfo->updateStyle);
-			}
-		}
-
-        $update->message    = isset($pluginInfo->updateMessage) ? $pluginInfo->updateMessage : '';
-        $update->style      = isset($pluginInfo->updateStyle) ? $pluginInfo->updateStyle : '';
-        $update->version    = isset($pluginInfo->version) ? $pluginInfo->version : '';
-
-        // Save upgrade info to database
-        update_site_option('pwebcontact_update', $update);
-
-        return $pluginInfo;
-    }
-
-    public function displayUpdateMessage() 
-	{
-        global $pagenow;
-        $option = get_site_option('pwebcontact_update');
-
-        // If $option is `false` script never checked plugin for update, so exit this method
-        if ($option === false)
-		{
-			return;
-		}
-
-		if (isset($option->version))
-		{
-			if ( $option->version <= $this->_get_version() ) 
-			{
-				$option->version = NULL;
-				update_site_option('pwebcontact_update', $option);
-			}
-
-			if ($option->version !== NULL AND
-				(in_array($pagenow, array('plugins.php', 'index.php')) OR ( $pagenow == 'admin.php' AND $_GET['page'] == 'pwebcontact' ))
-			) {
-				echo '<div class="updated position-relative display-block" style="' . $option->style . '">'
-					. '<p>'
-					. __($option->message ? $option->message : 'There is a new update of Perfect Contact Form!', 'pwebcontact')
-					. ' <a href="' . admin_url('update-core.php') . '">' . __('Click here', 'pwebcontact') . '</a>'
-					. '</p>'
-					. '</div>';
-			}
-		}
-    }
-    
-    public function get_updates_query($query)
-    {
-        global $wp_version;
-        
-        // download ID
-        require_once ABSPATH . 'wp-admin/includes/file.php';
-        $files = list_files( dirname(__FILE__), 1 );
-        foreach ($files as $file) {
-            $file = basename($file);
-            if (preg_match('/^[a-f0-9]{32}$/', $file)) {
-                $query['download_id'] = $file;
-                break;
-            }
-        }
-        
-        if (!isset($query['download_id'])) {
-            return $query;
-        }
-        
-        // plugin slug
-        $query['extension'] = 'pwebcontact';
-        
-        // plugin version
-        // installed_version = x.x.x
-        //$query['version'] = $this->_get_version();
-			
-		// WP version
-		$query['wpversion'] = $wp_version;
-		
-		// host name
-		$query['host'] = urlencode(home_url());
-        
-        return $query;
-    }
     
     private function _check_image_text_creation()
 	{
