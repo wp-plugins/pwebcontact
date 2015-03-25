@@ -225,7 +225,6 @@ Yes it will, however you only get access to new versions and support for as long
 * Fixed sending email when there is missing WordPress website name
 
 = 2.0.2 / 12-11-2014 =
-* Plugin update checker version 1.6
 * Bootstrap 3.3.0
 
 = 2.0.1 / 06-11-2014 =
