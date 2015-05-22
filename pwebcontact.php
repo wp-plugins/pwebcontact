@@ -3,7 +3,7 @@
  * Plugin Name: Perfect Easy & Powerful Contact Form
  * Plugin URI: http://www.perfect-web.co/wordpress/contact-form
  * Description: Easy for beginners, customizable for pros!
- * Version: 2.0.10
+ * Version: 2.0.11
  * Text Domain: pwebcontact
  * Author: Piotr Moćko
  * Author URI: http://www.perfect-web.co
@@ -18,7 +18,19 @@ function_exists('add_action') or die;
 if (version_compare($GLOBALS['wp_version'], '3.5', '>=') AND version_compare(PHP_VERSION, '5.3', '>=')) {
 
     require_once dirname( __FILE__ ) . '/site.php';
-    
+
+    function pwebcontact_upgrader_pre_download($reply = false, $package, $WP_Upgrader) {
+
+        if (strpos($package, 'pwebcontact') !== false) {
+            $data = get_plugin_data(dirname(__FILE__).'/pwebcontact.php', false, false);
+            if (preg_match('/\s*PRO\s*$/i', $data['Name']) AND ! preg_match('/_pro\.zip$/i', $package)) {
+                return new WP_Error('process_failed', $WP_Upgrader->strings['incompatible_archive']);
+            }
+        }
+        return $reply;
+    }
+    add_action( 'upgrader_pre_download', 'pwebcontact_upgrader_pre_download' );
+
     if ( is_admin() ) {
 
         if (defined( 'DOING_AJAX' )) {
@@ -56,7 +68,7 @@ if (version_compare($GLOBALS['wp_version'], '3.5', '>=') AND version_compare(PHP
     require_once dirname( __FILE__ ) . '/widget.php';
 }
 else {
-    
+
     function pwebcontact_requirements_notice() {
         ?>
         <div class="error">

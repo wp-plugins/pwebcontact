@@ -861,7 +861,7 @@ pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
     <hr>
     
     <p class="pweb-copyrights">
-		Copyright &copy; 2014
+		Copyright &copy; 2015
         <a href="http://www.perfect-web.co/wordpress/contact-form" target="_blank"><strong>Perfect Web sp. z o.o.</strong></a>, 
         All rights reserved.
 		Distributed under 
