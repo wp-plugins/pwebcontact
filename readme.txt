@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form
 Requires at least: 3.5.0
 Tested up to: 4.2.2
-Stable tag: 2.0.12
+Stable tag: 2.0.13
 License: GNU/GPL
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -196,6 +196,11 @@ Yes it will, however you only get access to new versions and support for as long
 
 == Changelog ==
 
+= 2.0.13 / 29-05-2015 =
+* Bootstrap 3.3.4
+* Fixed automatic downgrade from PRO to FREE version
+* Added Download ID option in main settings of Contact Form
+
 = 2.0.12 / 25-05-2015 =
 * Fixed installation error on some websites
 
@@ -303,6 +308,9 @@ Yes it will, however you only get access to new versions and support for as long
 * First release
 
 == Upgrade Notice ==
+
+= 2.0.13 =
+To use auto-updates in PRO version setup Download ID in main settings of this plugin. If you have bought the PRO version after April 2015 then you need to get Download ID from your account at our website.
 
 = 2.0.0 =
 New version with redesingned CSS structure. After upgrade FREE version you will lost predefined styles, but you will get many other options form PRO version, like layouts. After upgrade PRO version you will get new pretty themes and customizer.

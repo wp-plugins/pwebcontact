@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.9
+ * @version 2.0.13
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -35,7 +35,9 @@ class PWebContact_Admin {
         'load' => array(),
         'fields' => array(),
         'field_types' => array(),
-        'settings' => array(),
+        'settings' => array(
+            'dlid'
+        ),
         'params' => array(
             'attachment_delete',
 			'attachment_type',

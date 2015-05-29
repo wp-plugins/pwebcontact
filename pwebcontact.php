@@ -3,7 +3,7 @@
  * Plugin Name: Perfect Easy & Powerful Contact Form
  * Plugin URI: http://www.perfect-web.co/wordpress/contact-form
  * Description: Easy for beginners, customizable for pros!
- * Version: 2.0.12
+ * Version: 2.0.13
  * Text Domain: pwebcontact
  * Author: Piotr Moćko
  * Author URI: http://www.perfect-web.co
@@ -23,8 +23,8 @@ if (version_compare($GLOBALS['wp_version'], '3.5', '>=') AND version_compare(PHP
 
         if (strpos($package, 'pwebcontact') !== false) {
             $data = get_plugin_data(dirname(__FILE__).'/pwebcontact.php', false, false);
-            if (preg_match('/\s*PRO\s*$/i', $data['Name']) AND ! preg_match('/_pro\.zip$/i', $package)) {
-                return new WP_Error('process_failed', is_object($WP_Upgrader) ? $WP_Upgrader->strings['incompatible_archive'] : __('The package could not be installed.'));
+            if (preg_match('/\s+PRO\s*$/i', $data['Name']) AND ! preg_match('/_pro\.zip$/i', $package)) {
+                return new WP_Error('process_failed', sprintf(__('You are trying to downgrade %s to a FREE version. Your website can not connect to our Update Server and is fetching update information from wordpress.org about a FREE version. Update your PRO version manually or try later.', 'pwebcontact'), $data['Name']));
             }
         }
         return $reply;
@@ -72,7 +72,7 @@ else {
     function pwebcontact_requirements_notice() {
         ?>
         <div class="error">
-            <p><?php printf(__( 'Perfect Easy & Powerful Contact Form plugin requires WordPress %s and PHP %s', 'pwebcore' ), '3.5+', '5.3+'); ?></p>
+            <p><?php printf(__( 'Perfect Easy & Powerful Contact Form plugin requires WordPress %s and PHP %s', 'pwebcontact' ), '3.5+', '5.3+'); ?></p>
         </div>
         <?php
     }
