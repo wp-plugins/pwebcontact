@@ -1,8 +1,8 @@
 <?php
 /**
- * @version 2.0.0
+ * @version 2.0.14
  * @package Perfect Easy & Powerful Contact Form
- * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
+ * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @author Piotr Moćko
  */

@@ -1,5 +1,5 @@
 /**
- * @version 2.0.8
+ * @version 2.0.14
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -202,20 +202,6 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
     line-height: 29px;
     padding: 0 0 0 10px;
     color: #999;
-}
-#wpbody div.error,
-#wpbody div.updated,
-#wpbody div.update-nag,
-#wpbody div.update-message,
-#wpbody div.update-php,
-#wpbody div.update-plugins {
-    position: absolute;
-    top: 0px;
-    z-index: 1;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 .nav-tab-content {

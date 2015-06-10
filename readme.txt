@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form
 Requires at least: 3.5.0
 Tested up to: 4.2.2
-Stable tag: 2.0.13
+Stable tag: 2.0.14
 License: GNU/GPL
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -58,7 +58,7 @@ Try it, it’s easy!
 
 *Functions written in italic may be limited in a free version*
 
-**Visit our [demo page](http://www.perfect-web.co/wordpress/contact-form#page-demo) to see how cool they actually are ;)**
+**Visit our [demo page](https://www.perfect-web.co/wordpress-plugins/contact-form?utm_source=backend&utm_medium=installer&utm_campaign=WPD#page-demo) to see how cool they actually are ;)**
 
 = Compatibility & Requirements =
 
@@ -119,7 +119,7 @@ Try it, it’s easy!
 
 = Support =
 
-To ask a support question about Perfect Contact Form or post a bug report, fill a [support form](http://www.perfect-web.co/wordpress/contact-form/documentation) on our website. We will get back to you within 24h for sure, usually it takes less time. We are working from Monday to Friday 10 - 15 GMT+2, except holidays - actual informations on our website.
+To ask a support question about Perfect Contact Form or post a bug report, fill a [support form](https://www.perfect-web.co/wordpress-plugins/contact-form/documentation?utm_source=backend&utm_medium=installer&utm_campaign=WPD) on our website. We will get back to you within 24h for sure, usually it takes less time. We are working from Monday to Friday 10 - 15 GMT+2, except holidays - actual informations on our website.
 
 
 = 1. How to change Toggler tab height/width? =
@@ -149,7 +149,7 @@ Initializing forms error is caused by jQuery conflicts between our plugin and ot
 
 = 6. I have updated Contact Form through Wordpress panel and I no longer can use PRO features =
 
-Please disable and uninstall our plugin (do not worry, your existing form settings will remain intact), then download newest version form our website: https://www.perfect-web.co/my-subscriptions and install our plugin in .zip format through Wordpress Plugins manager.
+Please disable and uninstall our plugin (do not worry, your existing form settings will remain intact), then download newest version form our website: https://www.perfect-web.co/my-subscriptions?utm_source=backend&utm_medium=installer&utm_campaign=WPD and install our plugin in .zip format through Wordpress Plugins manager.
 
 
 = 7. How to open our contact form with a link or an image? =
@@ -195,6 +195,11 @@ Yes it will, however you only get access to new versions and support for as long
 21. Very advanced options for web developers
 
 == Changelog ==
+
+= 2.0.14 / 11-06-2015 =
+* Google Material Design theme
+* Fixed display of WordPress messages and errors
+* Notice about missing Download ID in PRO version
 
 = 2.0.13 / 29-05-2015 =
 * Bootstrap 3.3.4

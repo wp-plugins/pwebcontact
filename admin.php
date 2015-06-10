@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.13
+ * @version 2.0.14
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -102,10 +102,10 @@ class PWebContact_Admin {
     
     function __construct() {
         
-        $source = (file_exists(dirname(__FILE__).'/perfect-web.co') ? 'perfect-web.co' : 'wordpress.org');
+        $source = 'wordpress.org';
         
-        $this->documentation_url = 'http://www.perfect-web.co/wordpress/contact-form/documentation?utm_source=backend&utm_medium=button&utm_campaign=documentation&utm_content='.$source;
-        $this->buy_url = 'http://www.perfect-web.co/wordpress/contact-form/subscriptions?tmpl=component&utm_source=backend&utm_medium=button&utm_campaign=upgrade_to_pro&utm_content='.$source;
+        $this->documentation_url = 'https://www.perfect-web.co/wordpress-plugins/contact-form/documentation?utm_source=backend&utm_medium=button&utm_campaign=documentation&utm_content='.$source;
+        $this->buy_url = 'https://www.perfect-web.co/wordpress-plugins/contact-form/subscriptions?tmpl=component&utm_source=backend&utm_medium=button&utm_campaign=upgrade_to_pro&utm_content='.$source;
         
         // initialize admin view
         add_action( 'admin_init', array($this, 'init') );
@@ -640,8 +640,10 @@ pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
         if (!is_object($this->data)) {
             $this->data = new stdClass();
         }
-        $this->data->settings = get_option('pwebcontact_settings', array());
-        $this->_recursive_stripslashes($this->data->settings);
+        if (!isset($this->data->settings) OR !is_array($this->data->settings)) {
+            $this->data->settings = get_option('pwebcontact_settings', array());
+            $this->_recursive_stripslashes($this->data->settings);
+        }
     }
     
     
@@ -864,7 +866,7 @@ pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
     
     <p class="pweb-copyrights">
 		Copyright &copy; 2015
-        <a href="http://www.perfect-web.co/wordpress/contact-form" target="_blank"><strong>Perfect Web sp. z o.o.</strong></a>, 
+        <a href="https://www.perfect-web.co/wordpress-plugins/contact-form" target="_blank"><strong>Perfect Web sp. z o.o.</strong></a>, 
         All rights reserved.
 		Distributed under 
         <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_blank"><strong>GNU/GPL</strong></a>.<br>
@@ -985,6 +987,13 @@ pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
     }
 
 
+    protected function _get_plugin_name() {
+        
+        $data = get_plugin_data(dirname(__FILE__).'/pwebcontact.php', false, false);
+        return $data['Name'];
+    }
+
+
     protected function _get_version() {
         
         $data = get_plugin_data(dirname(__FILE__).'/pwebcontact.php', false, false);
@@ -999,7 +1008,7 @@ pwebcontact_admin.buy_url = "<?php echo $this->buy_url; ?>";
         return 
 			  '(function(){'
 			. 'var pw=document.createElement("script");pw.type="text/javascript";pw.async=true;'
-			. 'pw.src="https://www.perfect-web.co/index.php?option=com_pwebshop&view=updates&format=raw&extension=wp_pwebcontact&version='.$this->_get_version().'&wpversion='.$wp_version.'&uid='.md5(home_url()).'";'
+			. 'pw.src="https://www.perfect-web.co/index.php?option=com_ars&view=update&task=stream&format=raw&id=8&version='.$this->_get_version().'&wpversion='.$wp_version.'&uid='.md5(home_url()).'";'
 			. 'var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(pw,s);'
 			. '})();';
     }

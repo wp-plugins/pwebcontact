@@ -1,7 +1,7 @@
 /**
- * @version 1.0.0
+ * @version 2.0.14
  * @package Perfect Easy & Powerful Contact Form
- * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
+ * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @author Piotr Moćko
  */
@@ -184,6 +184,20 @@ if (typeof jQuery !== "undefined") jQuery(document).ready(function($){
     
     // Set duration of showing/hiding options
     setTimeout(function(){ pwebcontact_admin.duration = 400; }, 600);
+
+    $("#wpbody").find(".error, .updated, .update-nag, .update-message, .update-php, .update-plugins").each(function(){
+        var $close = $('<button class="button" style="position:absolute;top:5px;right:5px">&times;</button>')
+        .click(function(e){
+            e.preventDefault();
+            $(this).parent().remove();
+        });
+        $(this).css({'position': 'relative', 'min-height': 36}).prepend($close);
+    });
     
-    setTimeout(function(){ $("#wpbody").find(".updated, .error, .update-nag").hide(); }, 3000);
+    if (document.location.hash.indexOf('#pweb_settings_dlid') !== -1) {
+        var topOffset = $("#pweb_settings_dlid").offset().top - $("#pweb-adminbar").offset().top - $("#pweb-adminbar").outerHeight();
+        $("html,body").animate({ scrollTop: topOffset }, 500, function(){
+            $("#pweb_settings_dlid").closest(".pweb-field").addClass("pweb-alert pweb-alert-info");
+        });
+    }
 });

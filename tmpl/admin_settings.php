@@ -1,8 +1,8 @@
 <?php
 /**
- * @version 1.0.1
+ * @version 2.0.14
  * @package Perfect Easy & Powerful Contact Form
- * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
+ * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @author Piotr Moćko
  */
@@ -16,9 +16,12 @@ function_exists('add_action') or die;
     <div id="pweb-adminbar">
         
         <div class="pweb-toolbar pweb-clearfix">
-            <h2><?php echo $this->_get_name(); ?></h2>
-            
+
+            <!-- header for displaying update and error messages after -->
+            <h2 style="display:none"></h2>
             <?php $this->_display_messages(); ?>
+
+            <h2><?php echo $this->_get_name(); ?></h2>
 
             <button type="submit" class="button button-primary" id="pweb-save-button">
                 <i class="glyphicon glyphicon-floppy-disk"></i> <span><?php _e( 'Save' ); ?></span>
