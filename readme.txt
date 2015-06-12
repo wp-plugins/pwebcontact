@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form
 Requires at least: 3.5.0
 Tested up to: 4.2.2
-Stable tag: 2.0.14
+Stable tag: 2.0.15
 License: GNU/GPL
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -195,6 +195,11 @@ Yes it will, however you only get access to new versions and support for as long
 21. Very advanced options for web developers
 
 == Changelog ==
+
+= 2.0.15 / 12-06-2015 =
+* Fixed PHP notice in ajax response if email sent only to admin in FREE version
+* Removed some unused code in FREE version
+* Added missing border in Google Material Design theme
 
 = 2.0.14 / 11-06-2015 =
 * Google Material Design theme
