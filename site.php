@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.15
+ * @version 2.0.16
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -47,7 +47,7 @@ class PWebContact
             define('PWEBCONTACT_DEBUG', $debug);
             
             // Register scripts
-            wp_register_script('pwebcontact-bootstrap', $media_url.'bootstrap/js/bootstrap'.($debug ? '' : '.min').'.js', array('jquery'), '3.3.4', true);
+            wp_register_script('pwebcontact-bootstrap', $media_url.'bootstrap/js/bootstrap'.($debug ? '' : '.min').'.js', array('jquery'), '3.3.5', true);
             wp_register_script('pwebcontact-bootstrap-2', $media_url.'bootstrap-2.3.2/js/bootstrap'.($debug ? '' : '.min').'.js', array('jquery'), '2.3.2', true);
             
             
@@ -59,14 +59,14 @@ class PWebContact
             
             
             // Register styles
-            wp_register_style('pwebcontact-bootstrap', $media_url.'bootstrap/css/bootstrap'.($debug ? '' : '.min').'.css', array(), '3.3.4');
-            wp_register_style('pwebcontact-bootstrap-theme', $media_url.'bootstrap/css/bootstrap-theme'.($debug ? '' : '.min').'.css', array(), '3.3.4');
+            wp_register_style('pwebcontact-bootstrap', $media_url.'bootstrap/css/bootstrap'.($debug ? '' : '.min').'.css', array(), '3.3.5');
+            wp_register_style('pwebcontact-bootstrap-theme', $media_url.'bootstrap/css/bootstrap-theme'.($debug ? '' : '.min').'.css', array(), '3.3.5');
             wp_register_style('pwebcontact-bootstrap-2', $media_url.'bootstrap-2.3.2/css/bootstrap'.($debug ? '' : '.min').'.css', array(), '2.3.2');
             wp_register_style('pwebcontact-bootstrap-2-responsive', $media_url.'bootstrap-2.3.2/css/bootstrap-responsive'.($debug ? '' : '.min').'.css', array(), '2.3.2');
             wp_register_style('pwebcontact-bootstrap-custom', $media_url.'css/bootstrap-custom.css');
             wp_register_style('pwebcontact-bootstrap-custom-rtl', $media_url.'css/bootstrap-custom-rtl.css');
 
-            wp_register_style('pwebcontact-glyphicon', $media_url.'css/glyphicon.css', array(), '3.3.4');
+            wp_register_style('pwebcontact-glyphicon', $media_url.'css/glyphicon.css', array(), '3.3.5');
 
             wp_register_style('pwebcontact-layout', $media_url.'css/layout.css');
             wp_register_style('pwebcontact-layout-rtl', $media_url.'css/layout-rtl.css');
