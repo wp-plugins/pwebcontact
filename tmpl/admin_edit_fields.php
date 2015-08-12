@@ -1,14 +1,13 @@
 <?php
 /**
- * @version 2.0.5
+ * @version 2.1.0
  * @package Perfect Easy & Powerful Contact Form
- * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
+ * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @author Piotr Moćko
  */
 
 // TODO map field
-// TODO captcha field
 // TODO mail to list - allow multiple emails for one option
 // TODO subject - input or select
 // TODO URL field
@@ -34,6 +33,7 @@ $this->_set_pro_options('field_types', array(
     'email_copy',
     'custom_text',
     'header',
+    'captcha',
     'upload',
     'mailto_list'
 ));
@@ -1816,6 +1816,75 @@ $this->_set_pro_options('field_types', array(
                         'options' => array(
                             array('value' => 0, 'name' => 'No'),
                             array('value' => 1, 'name' => 'Yes')
+                        )
+                    )); ?>
+                </div>
+            </div>
+        </div>
+        
+        
+        <?php $field_type = 'captcha'; ?>
+        <div class="pweb-custom-fields-type pweb-custom-field-type-<?php echo $field_type; ?> pweb-custom-fields-single" id="pweb_field_type_<?php echo $field_type; ?>">
+            <?php _e('Captcha', 'pwebcontact'); ?>
+            <?php echo $this->_display_badge($field_type); ?>
+            
+            <div data-type="<?php echo $field_type; ?>" class="pweb-custom-field-container pweb-custom-fields-single<?php echo $this->_is_pro_field($field_type) ? ' pweb-pro' : ''; ?>">
+                <a href="#" class="pweb-custom-field-show-options pweb-has-tooltip" title="<?php _e('Edit'); ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                <div class="pweb-custom-field-type">
+                    <span><?php _e('Captcha field', 'pwebcontact'); ?></span>
+                    <?php echo $this->_display_badge($field_type); ?>
+                </div>
+                <div class="pweb-custom-field-label">
+                    <?php _e('Label', 'pwebcontact'); ?> <span></span>
+                </div>
+
+                <div class="pweb-custom-field-options">
+                    <h3><?php _e('Captcha field options', 'pwebcontact'); ?></h3>
+                    
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'hidden',
+                        'name' => 'type',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'value' => $field_type
+                    )); ?>
+                    
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'hidden',
+                        'name' => 'captcha',
+                        'value' => 'grecaptcha'
+                    )); ?>
+                    
+                    <div class="pweb-field">
+                        <a href="https://www.google.com/recaptcha" rel="nofollow" target="_blank">
+                            <img src="https://developers.google.com/recaptcha/images/newCaptchaAnchor.gif" alt="Google reCAPTCHA" style="max-width:300px;height:auto;border:0">
+                        </a>
+                    </div>
+                    
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'text',
+                        'name' => 'label',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Label',
+                        'class' => 'pweb-custom-field-label-input'
+                    )); ?>
+                    
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'radio',
+                        'name' => 'theme',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Theme',
+                        'class' => 'pweb-radio-group',
+                        'default' => 'light',
+                        'options' => array(
+                            array('value' => 'light', 'name' => 'Light'),
+                            array('value' => 'dark', 'name' => 'Dark')
                         )
                     )); ?>
                 </div>

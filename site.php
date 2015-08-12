@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.0.16
+ * @version 2.1.0
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +37,7 @@ class PWebContact
         if (!isset(self::$loaded['init'])) 
 		{
 			self::$loaded['init'] = true;
+            
             
             load_plugin_textdomain( 'pwebcontact', false, basename(dirname(__FILE__)).'/languages' );
             
@@ -508,6 +509,10 @@ class PWebContact
 				$css .= '.ui-effects-transfer.pweb-genie.pwebcontact'.$form_id.'-genie{'.implode(';', $declarations).'}';
 				$declarations = array();
 			}
+
+            // Allow to scroll reCAPTCHA v2 images
+            if ($params->get('captcha') == 'grecaptcha')
+                $css .= '#pwebcontact'.$form_id.'_box{margin-bottom:600px !important}';
 		}
 		
 		// Disable Boostrap 2 Glyphicons
@@ -896,6 +901,7 @@ class PWebContact
 				$options[] = 'accordionDuration:'.(int)$value;
 		}
         
+        
 		// Custom validation rules and calendar fields
 		$fields = self::getFields($form_id);
 		$rules = $calendars = array();
@@ -1129,8 +1135,8 @@ class PWebContact
             $phpmailer->isMail();
         }
     }
-	
-
+    
+    
 	public static function sendEmail() 
 	{		
 		add_action('phpmailer_init', array('PWebContact', 'setupMailer'));
@@ -1608,7 +1614,7 @@ class PWebContact
 	}
 
 
-	protected static function detectIP()
+	public static function detectIP()
 	{
 		$ip = null;
         
