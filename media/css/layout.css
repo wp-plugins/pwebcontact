@@ -1,5 +1,5 @@
 /**
- * @version 2.1.0
+ * @version 2.1.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,14 +12,19 @@ form.pwebcontact-form .btn {
 	font-size: 12px;
 }
 
-.pwebcontact,
-.pwebcontact *,
-.pweb-modal,
-.pweb-modal *,
+div.pwebcontact,
+div.pwebcontact *,
+div.pweb-modal,
+div.pweb-modal *,
 .pwebcontact_toggler {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
+}
+.pwebcontact.widget {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
 }
 
  /* Positions

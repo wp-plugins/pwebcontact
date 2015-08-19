@@ -41,3 +41,25 @@ function_exists('add_action') or die;
     'desc' => sprintf(__('Enter Download ID which you can find at %s website, to get automatical updates if you have active PRO subscription. You have to first reinstall plugin to PRO version by yourself.', 'pwebcontact'), '<a href="https://www.perfect-web.co/login" target="_blank">Perfect-Web.co</a>'),
     'label' => 'Download ID'
 )); ?>
+
+
+<?php echo $this->_get_field(array(
+    'type' => 'radio',
+    'name' => 'force_init',
+    'group' => 'settings',
+	'header' => 'Advanced settings',
+    'label' => 'Force to load CSS and JS at all pages',
+    'tooltip' => 'Enable this option only if you are displaying contact form inside content by some AJAX plugin',
+    'default' => 0,
+    'class' => 'pweb-radio-group',
+    'options' => array(
+        array(
+            'value' => 0,
+            'name' => 'No'
+        ),
+        array(
+            'value' => 1,
+            'name' => 'Yes'
+        )
+    )
+)); ?>

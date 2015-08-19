@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.1.0
+ * @version 2.1.1
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -82,10 +82,16 @@ class PWebContact
             wp_style_add_data('pwebcontact-ie8', 'conditional', 'lt IE 9');
             
             
-            // get forms published in footer and initialize them
-            $forms_id = self::getFormsInFooter();
-            foreach ($forms_id as $form_id) {
-                self::initForm($form_id);
+            // get forms and initialize them
+            $position = null;
+            $settings = self::getSettings();
+            if (!$settings->get('force_init', 0)) {
+                // get forms published in footer
+                $position = 'footer';
+            }
+            $forms = self::getForms($position);
+            foreach ($forms as $form) {
+                self::initForm($form->id, $form->position);
             }
             
             // check if there are any forms published and load IE CSS in header
@@ -96,23 +102,24 @@ class PWebContact
     }
     
     
-    public static function getFormsInFooter()
+    protected static function getForms($position = null)
     {
         global $wpdb;
         
-        $sql =  $wpdb->prepare('SELECT `id` '.
+        $sql =  $wpdb->prepare('SELECT `id`, `position` '.
                     'FROM `'.$wpdb->prefix.'pwebcontact_forms` '.
-                    'WHERE `publish` = %d AND `position` = %s', 1, 'footer');
+                    'WHERE `publish` = %d', 1)
+                . ($position ? ' AND `position` = "' . addslashes($position) . '"' : '');
 
-        return $wpdb->get_col($sql);
+        return $wpdb->get_results($sql);
     }
     
     
     public static function displayFormsInFooter()
     {
-        $forms_id = self::getFormsInFooter();
-        foreach ($forms_id as $form_id) {
-            self::displayForm($form_id);
+        $forms = self::getForms('footer');
+        foreach ($forms as $form) {
+            self::displayForm($form->id);
         }
     }
     
@@ -125,7 +132,7 @@ class PWebContact
         
         $output = '';
         
-        if ($id AND self::initForm($id, 'shortcode') === true) {
+        if ($id AND self::initForm($id, 'shortcode') !== false AND self::isFormReady($id)) {
             ob_start();
             self::displayForm($id);
             $output = ob_get_clean();
@@ -157,6 +164,12 @@ class PWebContact
                 
         // Disable form to load it only once
         self::$forms[$form_id] = false;
+    }
+    
+    
+    public static function isFormReady($form_id = 0) 
+	{
+		return (isset(self::$forms[$form_id]) AND self::$forms[$form_id] === true);
     }
 
 	public static function initForm($form_id = 0, $position = 'footer') 

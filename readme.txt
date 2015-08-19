@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form
 Requires at least: 3.5.0
 Tested up to: 4.3.0
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GNU/GPL
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -195,6 +195,12 @@ Yes it will, however you only get access to new versions and support for as long
 21. Very advanced options for web developers
 
 == Changelog ==
+
+= 2.1.1 / 19-08-2015 =
+* Added option to force loading JS and CSS resources at all pages
+* Fixed changing styles of other forms when form is opened in modal window
+* Fixed size of contact form in sidebar widget with Twenty-Fifteen WordPress theme
+* Fixed themes: Free, Easter, Google Material, Note, Notebook, Dev
 
 = 2.1.0 / 12-08-2015 =
 * Added Google Recaptcha field in PRO version

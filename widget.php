@@ -1,8 +1,8 @@
 <?php
 /**
- * @version 1.0.2
+ * @version 2.1.1
  * @package Perfect Easy & Powerful Contact Form
- * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
+ * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
  * @author Piotr Moćko
  */
@@ -23,16 +23,18 @@ class PWebContact_Widget extends WP_Widget {
 	/**
 	 * Widget setup.
 	 */
-	function PWebContact_Widget() {
+	public function __construct($id_base = 'pwebcontact-widget', $name = null, $widget_options = array(), $control_options = array()) {
+        
+        $name = ($name ? $name : __('Perfect Contact Form', 'pwebcontact'));
         
 		/* Widget settings. */
-		$widget_ops = array( 'classname' => 'pwebcontact', 'description' => __('Ajax Popup Contact Form.', 'pwebcontact') );
+		$widget_options = array_merge(array( 'classname' => 'pwebcontact', 'description' => __('Ajax Popup Contact Form.', 'pwebcontact') ), $widget_options);
 
 		/* Widget control settings. */
-		$control_ops = array( 'width' => 300, 'height' => 500, 'id_base' => 'pwebcontact-widget' );
+		$control_options = array_merge(array( 'width' => 300, 'height' => 500, 'id_base' => 'pwebcontact-widget' ), $control_options);
 
 		/* Create the widget. */
-		$this->WP_Widget( 'pwebcontact-widget', __('Perfect Contact Form', 'pwebcontact'), $widget_ops, $control_ops );
+		parent::__construct($id_base, $name, $widget_options, $control_options);
         
         add_action('admin_head', array($this, 'admin_head'));
 	}
@@ -40,11 +42,11 @@ class PWebContact_Widget extends WP_Widget {
 	/**
 	 * How to display the widget on the screen.
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
         
 		extract( $args );
         
-        if ( $instance['form_id'] AND PWebContact::initForm($instance['form_id'], 'widget') === true ) {
+        if ( $instance['form_id'] AND PWebContact::initForm($instance['form_id'], 'widget') !== false AND PWebContact::isFormReady($instance['form_id'])) {
 
             /* Variables from the widget settings. */
             $title = apply_filters('widget_title', $instance['title'] );
@@ -67,7 +69,7 @@ class PWebContact_Widget extends WP_Widget {
 	/**
 	 * Update the widget settings.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
         
 		$instance = $old_instance;
 
@@ -83,7 +85,7 @@ class PWebContact_Widget extends WP_Widget {
 	 * Make use of the get_field_id() and get_field_name() function
 	 * when creating your form elements. This handles the confusing stuff.
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
         
 		?>
 		<p>
@@ -107,7 +109,7 @@ class PWebContact_Widget extends WP_Widget {
 	}
     
     
-    function admin_head() {
+    public function admin_head() {
         
         global $pagenow;
         
