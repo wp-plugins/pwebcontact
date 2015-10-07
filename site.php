@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.1.1
+ * @version 2.1.2
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -1149,7 +1149,7 @@ class PWebContact
         }
     }
     
-    
+
 	public static function sendEmail() 
 	{		
 		add_action('phpmailer_init', array('PWebContact', 'setupMailer'));

@@ -1,5 +1,5 @@
 /**
- * @version 2.0.14
+ * @version 2.1.2
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -872,6 +872,7 @@ input.pweb-invalid, textarea.pweb-invalid, select.pweb-invalid, fieldset.pweb-in
 }
 .pweb-custom-field-type-upload,
 .pweb-custom-field-type-captcha,
+.pweb-custom-field-type-newsletter,
 .pweb-custom-field-type-mailto_list {
     background-color: #8066A8;
 }

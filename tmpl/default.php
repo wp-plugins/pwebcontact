@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.1.0
+ * @version 2.1.2
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -115,6 +115,98 @@ $message =
                     <?php
 					
                     
+
+                    /* ----- Email copy --------------------------------------------------------------------------- */
+                    elseif ($field['type'] == 'email_copy' AND $params->get('email_copy', 2) == 1) :
+                            $field['id'] = 'pwebcontact'.$form_id.'_copy';
+					?>
+					<div class="pweb-field-container pweb-field-checkbox pweb-field-copy">
+						<div class="pweb-field">
+							<input type="checkbox" name="copy" id="<?php echo $field['id']; ?>" value="1" class="pweb-checkbox" data-role="none">
+							<label for="<?php echo $field['id']; ?>" id="<?php echo $field['id']; ?>-lbl">
+								<?php _e($field['label'] ? $field['label'] : 'Send a copy to yourself', 'pwebcontact'); ?>
+							</label>
+						</div>
+					</div>
+					<?php 
+                    
+					
+					/* ----- Upload ----------------------------------------------------------------------------------- */
+					elseif ($field['type'] == 'upload') :
+						
+                        $params->def('show_upload', 1);
+                    
+                        $field['id'] = 'pwebcontact'.$form_id.'_uploader';
+
+                        $field['attributes'] = null;
+                        $field['class'] = null;
+                        $field['title'] = array();
+                        if ($params->get('upload_show_limits')) {
+                            $exts = explode('|', $params->get('upload_allowed_ext'));
+                            $types = array();
+                            foreach ($exts as $ext) {
+                                $pos = strpos($ext, '?');
+                                if ($pos !== false) {
+                                    $types[] = str_replace(substr($ext, $pos-1, 2), '', $ext);
+                                    $types[] = str_replace('?', '', $ext);
+                                }
+                                else {
+                                    $types[] = $ext;
+                                }
+                            }
+                            $field['title'][] = esc_attr(sprintf(__('Select a file or drag and drop on form. Max file size %s, max number of files %s, allowed file types: %s. ', 'pwebcontact'), 
+                                floatval($params->get('upload_size_limit', 1)).'MB',
+                                intval($params->get('upload_files_limit', 5)),
+                                implode(', ', $types)
+                            ));
+                        }
+                        if (isset($field['tooltip']) AND $field['tooltip']) {
+                            $field['title'][] = esc_attr__($field['tooltip'], 'pwebcontact');
+                        }
+                        if (count($field['title'])) {
+                            $field['class'] = ' pweb-tooltip';
+                            $field['attributes'] .= ' title="'.implode(' ', $field['title']).'"';
+                        }
+					?>
+					<div class="pweb-field-container pweb-field-uploader">
+						<div class="pweb-label">
+							<label for="<?php echo $field['id']; ?>" id="<?php echo $field['id']; ?>-lbl">
+								<?php _e($field['label'] ? $field['label'] : 'Attachment', 'pwebcontact'); ?>
+								<?php if (isset($field['required']) AND $field['required']) : ?><span class="pweb-asterisk">*</span><?php endif; ?>
+							</label>
+						</div>
+						<div class="pweb-field pweb-uploader" id="<?php echo $field['id']; ?>_container">
+							<div class="fileupload-buttonbar">
+								<span class="fileinput-button btn<?php echo $field['class']; ?>"<?php echo $field['attributes']; ?>>
+				                    <i class="glyphicon glyphicon-plus-sign"></i>
+                                    <span><?php _e((isset($field['button']) AND $field['button']) ? $field['button'] : 'Add files', 'pwebcontact'); ?></span>
+				                    <input type="file" name="files[]" multiple="multiple" id="<?php echo $field['id']; ?>"<?php if (isset($field['required']) AND $field['required']) echo ' class="pweb-validate-uploader"'; ?> data-role="none">
+				                </span>
+							</div>
+							<div class="files"></div>
+							<div class="templates" style="display:none" aria-hidden="true">
+								<div class="template-upload fade">
+									<span class="ready"><i class="glyphicon glyphicon-upload"></i></span>
+									<span class="warning"><i class="glyphicon glyphicon-warning-sign"></i></span>
+				                	<span class="name"></span>
+				                	<span class="size"></span>
+				                	<span class="error invalid"></span>
+				                	<a href="#" class="cancel"><i class="glyphicon glyphicon-remove"></i><?php _e('Cancel', 'pwebcontact'); ?></a>
+				                	<div class="progress progress-striped active"><div class="bar progress-bar" style="width:0%"></div></div>
+				                </div>
+								<div class="template-download fade">
+									<span class="success"><i class="glyphicon glyphicon-ok"></i></span>
+									<span class="warning"><i class="glyphicon glyphicon-warning-sign"></i></span>
+				                	<span class="name"></span>
+				                    <span class="size"></span>
+				                    <span class="error invalid"></span>
+				                    <a href="#" class="delete"><i class="glyphicon glyphicon-trash"></i><?php _e('Delete', 'pwebcontact'); ?></a>
+				                </div>
+							</div>
+						</div>
+					</div>
+					<?php 
+                    /*** PRO END ***/
                     
                     /* ----- Fields ----------------------------------------------------------------------------------- */
 					elseif (in_array($field['type'], $filedTypes)) : 

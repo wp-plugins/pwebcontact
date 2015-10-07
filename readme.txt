@@ -3,8 +3,8 @@ Contributors: perfect-web, piotrmocko
 Donate link: 
 Tags: contact form, file upload, AJAX, responsive contact form, multiple contact forms plugin, shortcode contact form, widget contact form, contact form plugin, contact form maker, drag and drop contact form, form builder, file upload form
 Requires at least: 3.5.0
-Tested up to: 4.3.0
-Stable tag: 2.1.1
+Tested up to: 4.3.1
+Stable tag: 2.1.2
 License: GNU/GPL
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -196,6 +196,12 @@ Yes it will, however you only get access to new versions and support for as long
 
 == Changelog ==
 
+= 2.1.2 / 28-09-2015 =
+* Updated list of Operating Systems
+* Removed predefined styles with were deprecated
+* MailChimp integration
+* FreshMail integration
+
 = 2.1.1 / 19-08-2015 =
 * Added option to force loading JS and CSS resources at all pages
 * Fixed changing styles of other forms when form is opened in modal window
@@ -339,6 +345,9 @@ Yes it will, however you only get access to new versions and support for as long
 * First release
 
 == Upgrade Notice ==
+
+= 2.1.2 =
+Predefined styles in PRO version of toggler, background, form fields and button were removed. If you did not change it to one of themes, then you will have to do it after update of contact form.
 
 = 2.0.13 =
 To use auto-updates in PRO version setup Download ID in main settings of this plugin. If you have bought the PRO version after April 2015 then you need to get Download ID from your account at our website.

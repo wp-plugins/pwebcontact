@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 2.1.0
+ * @version 2.1.2
  * @package Perfect Easy & Powerful Contact Form
  * @copyright © 2015 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license GNU/GPL http://www.gnu.org/licenses/gpl-3.0.html
@@ -35,7 +35,8 @@ $this->_set_pro_options('field_types', array(
     'header',
     'captcha',
     'upload',
-    'mailto_list'
+    'mailto_list',
+    'newsletter'
 ));
 ?>
 
@@ -1890,8 +1891,179 @@ $this->_set_pro_options('field_types', array(
                 </div>
             </div>
         </div>
-        
-        
+
+        <?php $field_type = 'newsletter'; ?>
+        <div class="pweb-custom-fields-type pweb-custom-field-type-<?php echo $field_type; ?> pweb-custom-fields-single" id="pweb_field_type_<?php echo $field_type; ?>">
+            <?php _e('Newsletter', 'pwebcontact'); ?>
+            <?php echo $this->_display_badge($field_type); ?>
+
+            <div data-type="<?php echo $field_type; ?>" class="pweb-custom-field-container pweb-custom-fields-single <?php echo $this->_is_pro_field($field_type) ? ' pweb-pro' : ''; ?>">
+                <a href="#" class="pweb-custom-field-show-options pweb-has-tooltip" title="<?php _e('Edit'); ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                <div class="pweb-custom-field-type">
+                    <span><?php _e('Newsletter field', 'pwebcontact'); ?></span>
+                    <?php echo $this->_display_badge($field_type); ?>
+                </div>
+                <div class="pweb-custom-field-label">
+                    <?php _e('Label', 'pwebcontact'); ?> <span></span>
+                </div>
+
+                <div class="pweb-custom-field-options">
+                    <h3><?php _e('Newsletter field options', 'pwebcontact'); ?></h3>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'hidden',
+                        'name' => 'type',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'value' => $field_type
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'select',
+                        'name' => 'newsletter_type',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Provider',
+                        'class' => 'newsletter_provider',
+                        'value' => $field_type,
+                        'options' => array(
+                            array(
+                                'value' => 'mailchimp',
+                                'name'  => 'MailChimp'
+                            ),
+                            array(
+                                'value' => 'freshmail',
+                                'name'  => 'FreshMail'
+                            )
+                        )
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'text',
+                        'name' => 'mailchimp_apikey',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'API key',
+                        'class' => 'newsletter_depends_on_mailchimp pweb-custom-field-label-input'
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'text',
+                        'name' => 'freshmail_apikey',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'API key',
+                        'class' => 'newsletter_depends_on_freshmail pweb-custom-field-label-input'
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'text',
+                        'name' => 'freshmail_secret',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Secret',
+                        'class' => 'newsletter_depends_on_freshmail pweb-custom-field-label-input'
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'button',
+                        'name' => 'newsletter_ajax',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'value' => 'Get Lists',
+                        'class' => 'newsletter_ajax pweb-custom-field-label-button',
+                        'attributes' => array(
+                            'data-action' => admin_url( 'admin.php?page=pwebcontact&task=newsletter&ajax=1&_wpnonce='. wp_create_nonce('newsletter') )
+                        ),
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'select',
+                        'name' => 'newsletter_lists',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Choose list (hold ctrl for windows or cmd for mac for multiple options)',
+                        'multiple' => 'multiple',
+                        'value' => $field_type,
+                        'class' => 'newsletter_lists',
+                        'options' => array(
+                            array('value'=>'', 'name'=>__('Retrieve list from API'))
+                        )
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'radio',
+                        'name' => 'newsletter_visibility',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Visibility of lists',
+                        'class' => 'pweb-radio-group',
+                        'default' => 2,
+                        'options' => array(
+                            array('value' => 0, 'name' => 'Hidden on front'),
+                            array('value' => 1, 'name' => 'Visible on front and checked'),
+                            array('value' => 2, 'name' => 'Visible on front and unchecked')
+                        )
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'text',
+                        'name' => 'label',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Label',
+                        'class' => 'pweb-custom-field-label-input'
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'text',
+                        'name' => 'tooltip',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Tooltip',
+                        'class' => 'pweb-input-large'
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'radio',
+                        'name' => 'required',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'label' => 'Required',
+                        'class' => 'pweb-radio-group',
+                        'default' => 0,
+                        'options' => array(
+                            array('value' => 0, 'name' => 'No'),
+                            array('value' => 1, 'name' => 'Yes')
+                        )
+                    )); ?>
+
+                    <?php echo $this->_get_field(array(
+                        'disabled' => true,
+                        'type' => 'hidden',
+                        'name' => 'alias',
+                        'index' => 'X',
+                        'group' => 'fields',
+                        'class' => 'pweb-custom-field-alias',
+                        'label' => '',
+                        'value' => 'newsletter'
+                    )); ?>
+
+                </div>
+            </div>
+        </div>
+
         <?php $field_type = 'mailto_list'; ?>
         <div class="pweb-custom-fields-type pweb-custom-field-type-<?php echo $field_type; ?> pweb-custom-fields-single" id="pweb_field_type_<?php echo $field_type; ?>">
             <?php _e('List of recipients', 'pwebcontact'); ?>
